@@ -14,5 +14,12 @@
             "email": "landers.robert@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "bottledcode/swytch-framework": "^0.1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "olvlvl/composer-attribute-collector": true
+        }
+    }
 }
