@@ -1,0 +1,18 @@
+{
+    "name": "withinboredom/once",
+    "description": "Share secrets easily",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Withinboredom\\Once\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robert Landers",
+            "email": "landers.robert@gmail.com"
+        }
+    ],
+    "require": {}
+}
