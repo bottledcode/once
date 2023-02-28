@@ -14,6 +14,12 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/bottledcode/swytch-framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/olvlvl/composer-attribute-collector" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/serializable-closure" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/php-di" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/php-di/invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mbagnall/php-rql" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
