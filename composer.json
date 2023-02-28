@@ -15,7 +15,8 @@
         }
     ],
     "require": {
-        "bottledcode/swytch-framework": "^0.1.0"
+        "bottledcode/swytch-framework": "^0.1.0",
+        "php": ">=8.2"
     },
     "config": {
         "allow-plugins": {
