@@ -20,6 +20,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/mbagnall/php-rql" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/string" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

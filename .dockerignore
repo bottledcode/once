@@ -1,4 +1,6 @@
-*.values.yml
+/charts/
+/html/assets/compiled.css
+/twcss
 ### Composer template
 composer.phar
 /vendor/
@@ -85,7 +87,3 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
-
-
-# Ignore DevSpace cache and log folder
-.devspace/

@@ -20,7 +20,7 @@ class Index
 		$this->begin();
 		?>
 		<!DOCTYPE html>
-		<html lang="{<?= $this->language->currentLanguage ?>}">
+		<html lang="{<?= $this->language->currentLanguage ?>}" class="h-full bg-color-white">
 		<head>
 			<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">

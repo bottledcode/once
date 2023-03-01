@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swytch-once
+spec:
+  replicas: {{.Values.replicaCount}}
+  strategy:
+    rollingUpdate:
+      maxSurge: 10%
+      maxUnavailable: 50%
+  selector:
+    matchLabels:
+      app: swytch-once
+  template:
+    metadata:
+      name: swytch-once
+      labels:
+        app: swytch-once
+    spec:
+      terminationGracePeriodSeconds: 30
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - podAffinityTerm:
+                topologyKey: kubernetes.io/hostname
+              weight: 100
+      containers:
+        - name: swytch-once
+          imagePullPolicy: {{ .Values.pullPolicy }}
+          env:
+            - name: SWYTCH_STATE_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: state-secret
+                  name: swytch-once
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+          image: {{.Values.image}}

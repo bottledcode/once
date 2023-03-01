@@ -1,0 +1,8 @@
+SetEnvIf X-Auth-Request-User ^(.*)$ HTTP_X_AUTH_REQUEST_USER=$1
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]

@@ -5,7 +5,7 @@ install-php-extensions xdebug
 echo "xdebug.mode = debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Start Apache
-frankenphp start --config /etc/Caddyfile
+apache2-foreground &
 sleep 1
 
 # Ensure file permissions

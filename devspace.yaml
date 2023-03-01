@@ -6,7 +6,6 @@ pipelines:
   # This is the pipeline for the main command: `devspace dev` (or `devspace run-pipeline dev`)
   dev:
     run: |-
-      loft wakeup image-builder
       run_dependencies --all       # 1. Deploy any projects this project needs (see "dependencies")
       ensure_pull_secrets --all    # 2. Ensure pull secrets
       create_deployments --all     # 3. Deploy Helm charts and manifests specfied as "deployments"
@@ -17,7 +16,8 @@ pipelines:
       loft wakeup image-builder
       run_dependencies --all                            # 1. Deploy any projects this project needs (see "dependencies")
       ensure_pull_secrets --all                         # 2. Ensure pull secrets
-      build_images --all -t $(git describe --always)    # 3. Build, tag (git commit hash) and push all images (see "images")
+      build_images --all
+      devspace reset pods                        # 4. Reset all pods to force a restart
       create_deployments --all                          # 4. Deploy Helm charts and manifests specfied as "deployments"
 
 # This is a list of `images` that DevSpace can build for this project
@@ -36,51 +36,17 @@ images:
 # This is a list of `deployments` that DevSpace can create for this project
 deployments:
   app:
+    updateImageTags: true
+    name: swytch-once
     # This deployment uses `helm` but you can also define `kubectl` deployments or kustomizations
     helm:
       # We are deploying this project with the Helm chart you provided
       chart:
-        name: component-chart
-        repo: https://charts.devspace.sh
+        path: charts/deployment
       # Under `values` we can define the values for this Helm chart used during `helm install/upgrade`
       # You may also use `valuesFiles` to load values from files, e.g. valuesFiles: ["values.yaml"]
-      values:
-        replicas: 2
-        rollingUpdate:
-          maxSurge: 1
-          maxUnavailable: 1
-        affinity:
-          podAntiAffinity:
-            requiredDuringSchedulingIgnoredDuringExecution:
-              - labelSelector:
-                  matchExpressions:
-                    - key: app
-                      operator: In
-                      values:
-                        - store
-                topologyKey: "kubernetes.io/hostname"
-        containers:
-          - image: registry.bottled.codes/swytch/once
-        service:
-          ports:
-            - port: 80
-        ingress:
-          tls: true
-          tlsClusterIssuer: letsencrypt
-          ingressClass: nginx
-          annotations:
-            nginx.ingress.kubernetes.io/auth-signin: https://auth.getswytch.com/login
-            nginx.ingress.kubernetes.io/auth-url: http://swytch-auth.auth.svc.cluster.local/api/auth?roles=user
-            nginx.ingress.kubernetes.io/auth-keepalive: "5"
-            nginx.ingress.kubernetes.io/auth-signin-redirect-param: "rd"
-            nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User
-            nginx.ingress.kubernetes.io/enable-modsecurity: "true"
-            nginx.ingress.kubernetes.io/enable-owasp-core-rules: "true"
-          rules:
-            - host: once.bottled.codes
-              paths:
-                - path: /
-                  pathType: Prefix
+      valuesFiles:
+        - deployment.values.yaml
       disableDependencyUpdate: false
 
 # This is a list of `dev` containers that are based on the containers created by your deployments
@@ -89,7 +55,7 @@ dev:
     # Search for the container that runs this image
     imageSelector: registry.bottled.codes/swytch/once
     # Replace the container image with this dev-optimized image (allows to skip image building during development)
-    devImage: dunglas/frankenphp:latest
+    devImage: registry.bottled.codes/swytch/once
     # Sync files between the local filesystem and the development container
     sync:
       - path: ./
@@ -98,7 +64,7 @@ dev:
       command: ./devspace_start.sh
     reversePorts:
       - bindAddress: '9003'
-        port: '9903'
+        port: '9003'
       # Make the following commands from my local machine available inside the dev container
     proxyCommands:
       - command: devspace
@@ -106,6 +72,7 @@ dev:
       - command: helm
       - gitCredentials: true
       - command: composer
+      - command: git
 
 # Use the `commands` section to define repeatable dev workflows for this project 
 commands:

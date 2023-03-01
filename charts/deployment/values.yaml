@@ -1,0 +1,10 @@
+# Default values for deployment.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+pullPolicy: Always
+image: registry.bottled.codes/swytch/once
+
+secrets:
+  stateSecret: this.is.secret
