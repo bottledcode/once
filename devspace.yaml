@@ -13,6 +13,7 @@ pipelines:
   # You can run this pipeline via `devspace deploy` (or `devspace run-pipeline deploy`)
   deploy:
     run: |-
+      devspace run clean
       loft wakeup image-builder
       run_dependencies --all                            # 1. Deploy any projects this project needs (see "dependencies")
       ensure_pull_secrets --all                         # 2. Ensure pull secrets
@@ -76,10 +77,10 @@ dev:
 
 # Use the `commands` section to define repeatable dev workflows for this project 
 commands:
-  migrate-db:
+  clean:
     command: |-
-      echo 'This is a cross-platform, shared command that can be used to codify any kind of dev task.'
-      echo 'Anyone using this project can invoke it via "devspace run migrate-db"'
+      rm -rf vendor
+      rm -rf html/assets/compiled.css
 
 # Define dependencies to other projects with a devspace.yaml
 # dependencies:
