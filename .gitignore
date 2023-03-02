@@ -1,5 +1,6 @@
 *.values.yml
 /html/assets/compiled.css
+deployment.values.yaml
 ### Composer template
 composer.phar
 /vendor/
