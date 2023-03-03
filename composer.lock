@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0068c32aaa3139f0a31dde4b14ae0d21",
+    "content-hash": "50acd2e4aeeb0e1abb3fbaad778c8e0b",
     "packages": [
         {
             "name": "bottledcode/swytch-framework",
-            "version": "v0.1.2",
+            "version": "dev-allow-replacements",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/swytch-framework.git",
-                "reference": "cddc5950d59cfc64b366f020dd8469f857efbabd"
+                "reference": "b1d391668158df395444e508f769fab931b128b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/cddc5950d59cfc64b366f020dd8469f857efbabd",
-                "reference": "cddc5950d59cfc64b366f020dd8469f857efbabd",
+                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/b1d391668158df395444e508f769fab931b128b3",
+                "reference": "b1d391668158df395444e508f769fab931b128b3",
                 "shasum": ""
             },
             "require": {
@@ -70,9 +70,9 @@
             "description": "A PHP framework for building web applications",
             "support": {
                 "issues": "https://github.com/bottledcode/swytch-framework/issues",
-                "source": "https://github.com/bottledcode/swytch-framework/tree/v0.1.2"
+                "source": "https://github.com/bottledcode/swytch-framework/tree/allow-replacements"
             },
-            "time": "2023-02-28T22:17:12+00:00"
+            "time": "2023-03-03T22:38:55+00:00"
         },
         {
             "name": "gettext/gettext",
@@ -1965,6 +1965,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "bottledcode/swytch-framework": 20,
         "mbagnall/php-rql": 20,
         "roave/security-advisories": 20
     },

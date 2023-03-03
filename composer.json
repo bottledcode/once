@@ -33,7 +33,7 @@
     }
   ],
   "require": {
-    "bottledcode/swytch-framework": "^0.1.0",
+    "bottledcode/swytch-framework": "dev-allow-replacements",
     "mbagnall/php-rql": "dev-master",
     "monolog/monolog": "^3.3",
     "php": ">=8.2"
