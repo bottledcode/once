@@ -1,13 +1,1 @@
-<svg
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        aria-hidden="true"
->
-    <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-    />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 32 32" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><rect width="28" height="4" x="2" y="2" fill="#4338ca" rx="1" data-original="#798bc6" class=""></rect><rect width="28" height="4" x="2" y="14" fill="#faf7f5" rx="1" data-original="#faf7f5" class=""></rect><rect width="28" height="4" x="2" y="26" fill="#faf7f5" rx="1" data-original="#faf7f5" class=""></rect><g fill="#5369a0"><path d="M29 1H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM3 5V3h26v2zM29 13H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zM3 17v-2h26v2zM29 25H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2zM3 29v-2h26v2z" fill="#1a2b55" data-original="#5369a0" class=""></path></g></g></svg>

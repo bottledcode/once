@@ -14,8 +14,8 @@ class Label
 	{
 		$this->begin();
 		?>
-		<label for="<?= $for ?>" class="block text-sm font-medium leading-6 text-gray-900">
-			<children />
+		<label for="<?= $for ?>" class="block text-sm font-medium leading-6 text-gray-900 dark:text-gray-300">
+			<children/>
 		</label>
 		<?php
 		return $this->end();
