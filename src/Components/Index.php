@@ -9,16 +9,16 @@ use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 #[Component('Index')]
 class Index
 {
-    use RegularPHP;
+	use RegularPHP;
 
-    public function __construct(private LanguageAcceptor $language)
-    {
-    }
+	public function __construct(private LanguageAcceptor $language)
+	{
+	}
 
-    public function render()
-    {
-        $this->begin();
-        ?>
+	public function render()
+	{
+		$this->begin();
+		?>
         <!DOCTYPE html>
         <html lang="{<?= $this->language->currentLanguage ?>}" class="h-full bg-color-black dark:bg-slate">
         <head>
@@ -33,6 +33,7 @@ class Index
             <Navbar open=""></Navbar>
 
             <Route path="/" render="<Homepage />"></Route>
+            <Route path="/app/send" render="<Send />"></Route>
             <!--
                         <header class="bg-white shadow">
                             <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
@@ -47,7 +48,7 @@ class Index
         </div>
         </body>
         </html>
-        <?php
-        return $this->end();
-    }
+		<?php
+		return $this->end();
+	}
 }

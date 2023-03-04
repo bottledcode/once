@@ -40,7 +40,7 @@ class Homepage
                         <div class="relative pl-16">
                             <dt class="text-base font-semibold leading-7 text-gray-900 dark:text-gray-300">
                                 <div class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                    <svg src="/assets/lock.svg" class="h-8 w-8 fill-gray-300"></svg>
+                                    <img src="/assets/lock.svg" class="h-8 w-8 fill-gray-300" alt="Encryption">
                                 </div>
                                 Secure
                             </dt>
@@ -53,7 +53,7 @@ class Homepage
                         <div class="relative pl-16">
                             <dt class="text-base font-semibold leading-7 text-gray-900 dark:text-gray-300">
                                 <div class="absolute top-0 left-0 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-600">
-                                    <svg class="h-8 w-8 fill-gray-300" src="/assets/private.svg"></svg>
+                                    <img class="h-8 w-8 fill-gray-300" src="/assets/private.svg" alt="Private">
                                 </div>
                                 Private
                             </dt>
