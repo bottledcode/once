@@ -117,7 +117,7 @@ class Send
 										name="time-limit"
 										label="{<?= __('Time limit') ?>}"
 										description="{<?= __(
-											'This message will only be available for 12 hours'
+											'This message will only be available for 12 hours. The default is 72 hours.'
 										) ?>}"
 									></send:checkbox>
 									<send:checkbox

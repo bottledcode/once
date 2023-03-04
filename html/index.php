@@ -1,6 +1,7 @@
 <?php
 
 use Bottledcode\SwytchFramework\App;
+use Bottledcode\SwytchFramework\Language\LanguageAcceptor;
 use Bottledcode\SwytchFramework\Template\Interfaces\AuthenticationServiceInterface;
 use Monolog\Formatter\LogstashFormatter;
 use Monolog\Handler\StreamHandler;
@@ -31,7 +32,7 @@ $app = new App(
 			->method('pushProcessor', get(WebProcessor::class)),
 		StreamHandler::class => create(StreamHandler::class)
 			->constructor('php://stderr', 100),
-		AuthenticationServiceInterface::class => create(AuthService::class)
+		AuthenticationServiceInterface::class => create(AuthService::class),
 	],
 );
 

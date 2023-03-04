@@ -33,6 +33,10 @@ spec:
                 secretKeyRef:
                   key: state-secret
                   name: swytch-once
+            - name: SWYTCH_DEFAULT_LANGUAGE
+              value: 'en'
+            - name: SWYTCH_SUPPORTED_LANGUAGES
+              value: 'en,nl'
           resources:
             requests:
               cpu: 100m

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d12a5e0c275f07c96a36b4f69d0e746",
+    "content-hash": "b74822f9c685d110d206a0c2adfd9195",
     "packages": [
         {
             "name": "bottledcode/swytch-framework",
-            "version": "v0.1.4",
+            "version": "dev-fix-env",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/swytch-framework.git",
-                "reference": "7af690590a34c2c47d2496e0c4cdb13d46aaca30"
+                "reference": "e9bf9e7cf09992ef954189d18db1df1198887e6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/7af690590a34c2c47d2496e0c4cdb13d46aaca30",
-                "reference": "7af690590a34c2c47d2496e0c4cdb13d46aaca30",
+                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/e9bf9e7cf09992ef954189d18db1df1198887e6a",
+                "reference": "e9bf9e7cf09992ef954189d18db1df1198887e6a",
                 "shasum": ""
             },
             "require": {
@@ -70,9 +70,9 @@
             "description": "A PHP framework for building web applications",
             "support": {
                 "issues": "https://github.com/bottledcode/swytch-framework/issues",
-                "source": "https://github.com/bottledcode/swytch-framework/tree/v0.1.4"
+                "source": "https://github.com/bottledcode/swytch-framework/tree/fix-env"
             },
-            "time": "2023-03-04T16:08:29+00:00"
+            "time": "2023-03-04T21:56:56+00:00"
         },
         {
             "name": "gettext/gettext",
@@ -1965,6 +1965,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "bottledcode/swytch-framework": 20,
         "mbagnall/php-rql": 20,
         "roave/security-advisories": 20
     },
