@@ -40,9 +40,11 @@ class Navbar
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex items-center">
 						<div class="flex-shrink-0">
-							<img class="h-8 w-8"
-							     src="/assets/logo-small.svg"
-							     alt="Swytch">
+							<img
+								class="h-8 w-8"
+								src="/assets/logo-small.svg"
+								alt="Swytch"
+							>
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
@@ -58,18 +60,20 @@ class Navbar
 						<!-- Mobile menu button -->
 						<form hx-post="<?= $open ? '/api/navbar/close' : '/api/navbar/open' ?>" class="m-0">
 							<button
-									type="submit"
-									class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-									aria-controls="mobile-menu"
-									aria-expanded="false"
+								type="submit"
+								class="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+								aria-controls="mobile-menu"
+								aria-expanded="false"
 							>
 								<span class="sr-only">Open main menu</span>
-								<svg class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
-								     src="/assets/hamburger.svg"></svg>
+								<svg
+									class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
+									src="/assets/hamburger.svg"
+								></svg>
 								<!-- Menu open: "block", Menu closed: "hidden" -->
 								<svg
-										class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6"
-										src="/assets/close.svg"
+									class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6"
+									src="/assets/close.svg"
 								></svg>
 							</button>
 						</form>

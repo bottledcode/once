@@ -1,5 +1,12 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
+    <HTMLCodeStyleSettings>
+      <option name="HTML_UNIFORM_INDENT" value="true" />
+      <option name="HTML_ATTRIBUTE_WRAP" value="4" />
+      <option name="HTML_ENFORCE_QUOTES" value="true" />
+      <option name="HTML_NEWLINE_BEFORE_FIRST_ATTRIBUTE" value="When multiline" />
+      <option name="HTML_NEWLINE_AFTER_LAST_ATTRIBUTE" value="When multiline" />
+    </HTMLCodeStyleSettings>
     <PHPCodeStyleSettings>
       <option name="BLANK_LINES_BETWEEN_IMPORTS" value="1" />
       <option name="LOWER_CASE_BOOLEAN_CONST" value="true" />
@@ -12,6 +19,7 @@
     </PHPCodeStyleSettings>
     <codeStyleSettings language="HTML">
       <indentOptions>
+        <option name="CONTINUATION_INDENT_SIZE" value="4" />
         <option name="USE_TAB_CHARACTER" value="true" />
         <option name="SMART_TABS" value="true" />
       </indentOptions>

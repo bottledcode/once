@@ -28,9 +28,9 @@ class NavbarPageSelector
 		$this->begin();
 		?>
 		<a
-				href="<?= $href ?>"
+			href="<?= $href ?>"
 			<?= $onPage ? 'aria-current="page"' : '' ?>
-				class="<?= $classes ?>"
+			class="<?= $classes ?>"
 		>
 			{<?= $label ?>}
 		</a>
