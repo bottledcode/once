@@ -99,9 +99,51 @@ class Send
 				<div class="mt-5 md:col-span-2 md:mt-0">
 					<div class="shadow sm:overflow-hidden sm:rounded-md">
 						<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
-							<div class="grid grid-cols-6 gap-6">
-								<div class="col-span-6 sm:col-span-3">
+							<fieldset>
+								<legend class="sr-only">Rules</legend>
+								<div
+									class="text-sm font-semibold leading-6 text-gray-900 dark:text-gray-300"
+									aria-hidden="true"
+								>
+									Rules
 								</div>
+								<div class="mt-4 space-y-4">
+									<send:checkbox
+										name="once-rule"
+										label="{<?= __('Self-destruct') ?>}"
+										description="{<?= __('Only allow this message to be viewed exactly once') ?>}"
+									></send:checkbox>
+									<send:checkbox
+										name="time-limit"
+										label="{<?= __('Time limit') ?>}"
+										description="{<?= __(
+											'This message will only be available for 12 hours'
+										) ?>}"
+									></send:checkbox>
+									<send:checkbox
+										name="password"
+										label="{<?= __('Password protect') ?>}"
+										description="{<?= __(
+											'All messages are encrypted so only the recipient can read the message, but you can add additional protection with a password'
+										) ?>}"
+									></send:checkbox>
+								</div>
+							</fieldset>
+						</div>
+						<div class="bg-gray-50 dark:bg-slate-600 px-4 py-3 grid grid-cols-2 sm:px-6">
+							<div class="col-span-1">
+								<p class="inline-flex justify-center align-center prose dark:prose-invert">
+									{<?= p__('A link to swytch follows', 'Do this and more with') ?>}
+									&nbsp;<a class="" href="https://getswytch.com">Swytch</a>
+								</p>
+							</div>
+							<div class="col-span-1 text-right">
+								<button
+									type="submit"
+									class="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+								>
+									{<?= __('Send it') ?>}
+								</button>
 							</div>
 						</div>
 					</div>

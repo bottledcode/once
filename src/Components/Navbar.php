@@ -51,7 +51,6 @@ class Navbar
 								<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 								<NavbarPageSelector href="/" label="Home"></NavbarPageSelector>
 								<NavbarPageSelector href="/app/send" label="Send"></NavbarPageSelector>
-								<NavbarPageSelector href="/app/receive" label="Receive"></NavbarPageSelector>
 								<NavbarPageSelector href="/about" label="About"></NavbarPageSelector>
 							</div>
 						</div>
@@ -66,9 +65,17 @@ class Navbar
 								aria-expanded="false"
 							>
 								<span class="sr-only">Open main menu</span>
-								<img class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6" src="/assets/hamburger.svg" alt="open">
+								<img
+									class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
+									src="/assets/hamburger.svg"
+									alt="open"
+								>
 								<!-- Menu open: "block", Menu closed: "hidden" -->
-								<img class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6" src="/assets/close.svg" alt="close">
+								<img
+									class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6"
+									src="/assets/close.svg"
+									alt="close"
+								>
 							</button>
 						</form>
 					</div>
@@ -83,7 +90,6 @@ class Navbar
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 						<NavbarPageSelector mobile="true" href="/" label="Home"></NavbarPageSelector>
 						<NavbarPageSelector mobile="true" href="/app/send" label="Send"></NavbarPageSelector>
-						<NavbarPageSelector mobile="true" href="/app/receive" label="Receive"></NavbarPageSelector>
 						<NavbarPageSelector mobile="true" href="/about" label="About"></NavbarPageSelector>
 					</div>
 				</div>
