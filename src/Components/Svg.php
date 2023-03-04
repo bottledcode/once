@@ -42,7 +42,7 @@ class Svg implements ReplacesHtml, RemovePassedAttributes
 
 		str_replace('</svg>', '', $svg);
 
-		return $svg;
+		return substr($svg, strpos($svg, '<svg'));
 	}
 
 	public function replaceTag(): bool

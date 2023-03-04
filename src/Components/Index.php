@@ -19,24 +19,24 @@ class Index
 	{
 		$this->begin();
 		?>
-        <!DOCTYPE html>
-        <html lang="{<?= $this->language->currentLanguage ?>}" class="h-full bg-color-black dark:bg-slate">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-            <link rel="icon" href="/assets/logo-small.svg" type="image/svg+xml">
-            <link rel="stylesheet" href="/assets/compiled.css">
-            <title>Once -- Simple Security</title>
-        </head>
-        <body class="h-full">
-        <div class="min-h-full dark:bg-slate-800">
-            <Navbar open=""></Navbar>
+		<!DOCTYPE html>
+		<html lang="{<?= $this->language->currentLanguage ?>}" class="h-full bg-color-black dark:bg-slate">
+		<head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link rel="icon" href="/assets/logo-small.svg" type="image/svg+xml">
+			<link rel="stylesheet" href="/assets/compiled.css">
+			<title>Once -- Simple Security</title>
+		</head>
+		<body class="h-full">
+		<div class="min-h-full dark:bg-slate-800">
+			<Navbar open=""></Navbar>
 
-            <Route path="/" render="<Homepage />"></Route>
-            <Route path="/app/send" render="<Send />"></Route>
-        </div>
-        </body>
-        </html>
+			<Route path="/" render="<Homepage />"></Route>
+			<Route path="/app/send" render="<Send />"></Route>
+		</div>
+		</body>
+		</html>
 		<?php
 		return $this->end();
 	}
