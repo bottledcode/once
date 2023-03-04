@@ -1,6 +1,7 @@
 /charts/
 /html/assets/compiled.css
 /twcss
+/.git/
 ### Composer template
 composer.phar
 /vendor/

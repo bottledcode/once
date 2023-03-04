@@ -34,6 +34,7 @@ class Index
 
 			<Route path="/" render="<Homepage />"></Route>
 			<Route path="/app/send" render="<Send />"></Route>
+			<DefaultRoute render="<not-found></not-found>"></DefaultRoute>
 		</div>
 		</body>
 		</html>

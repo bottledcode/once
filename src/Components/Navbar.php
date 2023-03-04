@@ -66,15 +66,9 @@ class Navbar
 								aria-expanded="false"
 							>
 								<span class="sr-only">Open main menu</span>
-								<svg
-									class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
-									src="/assets/hamburger.svg"
-								></svg>
+								<img class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6" src="/assets/hamburger.svg" alt="open">
 								<!-- Menu open: "block", Menu closed: "hidden" -->
-								<svg
-									class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6"
-									src="/assets/close.svg"
-								></svg>
+								<img class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6" src="/assets/close.svg" alt="close">
 							</button>
 						</form>
 					</div>

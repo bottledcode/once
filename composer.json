@@ -1,45 +1,45 @@
 {
-  "authors": [
-    {
-      "email": "landers.robert@gmail.com",
-      "name": "Robert Landers"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Withinboredom\\Once\\": "src/"
-    }
-  },
-  "config": {
-    "allow-plugins": {
-      "olvlvl/composer-attribute-collector": true
-    }
-  },
-  "description": "Share secrets easily",
-  "license": "MIT",
-  "name": "withinboredom/once",
-  "replace": {
-    "symfony/polyfill-ctype": "*",
-    "symfony/polyfill-intl-grapheme": "*",
-    "symfony/polyfill-intl-normalizer": "*",
-    "symfony/polyfill-mbstring": "*",
-    "symfony/polyfill-uuid": "*"
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "branch": "master",
-      "url": "git@github.com:bottledcode/php-rql.git"
-    }
-  ],
-  "require": {
-    "bottledcode/swytch-framework": "dev-allow-replacements",
-    "mbagnall/php-rql": "dev-master",
-    "monolog/monolog": "^3.3",
-    "php": ">=8.2"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest"
-  },
-  "type": "project"
+	"authors": [
+		{
+			"email": "landers.robert@gmail.com",
+			"name": "Robert Landers"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Withinboredom\\Once\\": "src/"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"olvlvl/composer-attribute-collector": true
+		}
+	},
+	"description": "Share secrets easily",
+	"license": "MIT",
+	"name": "withinboredom/once",
+	"replace": {
+		"symfony/polyfill-ctype": "*",
+		"symfony/polyfill-intl-grapheme": "*",
+		"symfony/polyfill-intl-normalizer": "*",
+		"symfony/polyfill-mbstring": "*",
+		"symfony/polyfill-uuid": "*"
+	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"branch": "master",
+			"url": "git@github.com:bottledcode/php-rql.git"
+		}
+	],
+	"require": {
+		"bottledcode/swytch-framework": "^v0.1.0",
+		"mbagnall/php-rql": "dev-master",
+		"monolog/monolog": "^3.3",
+		"php": ">=8.2"
+	},
+	"require-dev": {
+		"roave/security-advisories": "dev-latest"
+	},
+	"type": "project"
 }
