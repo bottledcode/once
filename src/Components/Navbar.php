@@ -54,14 +54,6 @@ class Navbar
                             </div>
                         </div>
                     </div>
-                    <div class="hidden md:block">
-                        <div class="ml-4 flex items-center md:ml-6">
-                            <button type="button"
-                                    class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                Login
-                            </button>
-                        </div>
-                    </div>
                     <div class="-mr-2 flex md:hidden">
                         <!-- Mobile menu button -->
                         <form hx-post="<?= $open ? '/api/navbar/close' : '/api/navbar/open' ?>" class="m-0">
@@ -74,7 +66,7 @@ class Navbar
                                 <span class="sr-only">Open main menu</span>
                                 <!-- Menu open: "hidden", Menu closed: "block" -->
                                 <svg
-                                        class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
+                                        class="block h-6 w-6"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke-width="1.5"
@@ -114,15 +106,6 @@ class Navbar
                         <NavbarPageSelector mobile="true" href="/app/send" label="Send"></NavbarPageSelector>
                         <NavbarPageSelector mobile="true" href="/app/receive" label="Receive"></NavbarPageSelector>
                         <NavbarPageSelector mobile="true" href="/about" label="About"></NavbarPageSelector>
-                    </div>
-                    <div class="border-t border-gray-700 pt-4 pb-3">
-                        <div class="mt-3 space-y-1 px-2">
-                            <a href="/app"
-                               class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
-                            >
-                                Login
-                            </a>
-                        </div>
                     </div>
                 </div>
             <?php
