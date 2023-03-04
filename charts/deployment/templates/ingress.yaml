@@ -17,9 +17,9 @@ spec:
   tls:
     - secretName: tls-app
       hosts:
-        - once.getswytch.com
+        - {{.Values.host}}
   rules:
-    - host: once.getswytch.com
+    - host: {{.Values.host}}
       http:
         paths:
           - backend:
@@ -46,16 +46,16 @@ metadata:
     certmanager.k8s.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/auth-signin-redirect-param: "rd"
     nginx.ingress.kubernetes.io/auth-response-headers: X-Auth-Request-User,X-Auth-Request-Email,X-Auth-Request-Access-Token,Set-Cookie,Authorization
-    nginx.ingress.kubernetes.io/auth-signin: https://auth.bottled.codes/login
-    nginx.ingress.kubernetes.io/auth-url: http://swytch-auth.auth.svc.cluster.local/api/auth?roles=admin
+    nginx.ingress.kubernetes.io/auth-signin: {{.Values.auth.signinUrl}}
+    nginx.ingress.kubernetes.io/auth-url: http://swytch-auth.auth.svc.cluster.local/api/auth?roles={{.Values.auth.allowedRoles}}
 spec:
   ingressClassName: nginx
   tls:
     - secretName: tls-app
       hosts:
-        - once.getswytch.com
+        - {{.Values.host}}
   rules:
-    - host: once.getswytch.com
+    - host: {{.Values.host}}
       http:
         paths:
           - backend:

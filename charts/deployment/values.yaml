@@ -5,6 +5,11 @@
 replicaCount: 1
 pullPolicy: Always
 image: registry.bottled.codes/swytch/once
+host: once.getswytch.com
+
+auth:
+  signinUrl: https://auth.getswytch.com/login
+  allowedRoles: user
 
 secrets:
   stateSecret: this.is.secret
