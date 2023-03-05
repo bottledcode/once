@@ -11,6 +11,7 @@ use Bottledcode\SwytchFramework\Template\Compiler;
 use Bottledcode\SwytchFramework\Template\Traits\Htmx;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 use Withinboredom\Once\Models\NewMessage;
+use Withinboredom\Once\Repositories\MessageRepository;
 use Withinboredom\Once\Roles;
 
 #[Component('send')]
@@ -20,7 +21,7 @@ readonly class Send
 	use RegularPHP;
 	use Htmx;
 
-	public function __construct(private Compiler $compiler)
+	public function __construct(private Compiler $compiler, private MessageRepository $messageRepository)
 	{
 	}
 
@@ -29,54 +30,45 @@ readonly class Send
 	public function send(
 		NewMessage $message
 	): string {
+		$savedMessage = $this->messageRepository->save($message);
+
+		// todo: send email to receiver??
+		$this->historyPush('/sent/' . $savedMessage->id);
+
 		$this->begin();
 		?>
-		<div class="grid grid-cols-2">
-			<div>
-				first name
-			</div>
-			<div>
-				<?= $message->first_name ?>
-			</div>
-			<div>
-				email address
-			</div>
-			<div>
-				<?= $message->email_address ?>
-			</div>
-			<div>
-				text editor
-			</div>
-			<div>
-				<?= print_r($message->text_editor, true) ?>
-			</div>
-			<div>
-				once rule
-			</div>
-			<div>
-				<?= $message->once_rule ? 'true' : 'false' ?>
-			</div>
-			<div>
-				time limit
-			</div>
-			<div>
-				<?= $message->time_limit ? 'true' : 'false' ?>
-			</div>
-			<div>
-				set password
-			</div>
-			<div>
-				<?= $message->set_password ? 'true' : 'false' ?>
-			</div>
-			<div>
-				password
-			</div>
-			<div>
-				<?= $message->password ?>
+		<div class="p-5 bg-gray-100 dark:bg-slate-800 min-h-full">
+			<div class="grid grid-cols-1">
+				<h2 class="text-xl font-semibold tracking-tight mx-auto dark:text-gray-300">Your message has been
+					stored</h2>
+				<p class="mx-auto py-3 dark:text-gray-300">
+					<strong>What now?</strong> Below is a link to your message. Only the person who has this link and
+					the ability to login with that email address can read your message. <strong>We do <em>NOT</em> send
+						an email to your recipient for you. You will need to give them the link below.</strong>
+				</p>
+				<div class="my-3 relative">
+					<input
+						type="text"
+						readonly
+						id="message_link"
+						class="rounded-md w-full text-sm dark:bg-gray-900 dark:text-gray-400"
+						value="https://auth.getswytch.com/app/read/{<?= $savedMessage->id ?>}"
+					>
+					<div
+						class="absolute ease-in-out transition-opacity duration-700 opacity-0 inset-y-0 right-0 flex items-center rounded-md bg-red-600 h-full text-gray-300 text-sm"
+						id="message_copied"
+					>
+						Copied to clipboard
+					</div>
+					<script src="/assets/copy-to-cb.js"></script>
+				</div>
+				<div class="py-6 dark:text-gray-300 mx-auto">
+					Send <a href="/app/send" class="underline font-semibold">another message</a>
+				</div>
 			</div>
 		</div>
 		<?php
-		return $this->end();
+		return $this->html($this->end());
 	}
 
 	#[Route(Method::GET, '/api/user/message/password')]

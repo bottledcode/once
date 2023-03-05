@@ -34,6 +34,7 @@
 	],
 	"require": {
 		"bottledcode/swytch-framework": "dev-fix-env",
+		"ext-sodium": "*",
 		"mbagnall/php-rql": "dev-master",
 		"monolog/monolog": "^3.3",
 		"php": ">=8.2"

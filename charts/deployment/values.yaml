@@ -13,3 +13,9 @@ auth:
 
 secrets:
   stateSecret: this.is.secret
+
+rethinkdb:
+  host: rethinkdb
+  db: once
+  user: once
+  password: secret

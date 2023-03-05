@@ -37,6 +37,26 @@ spec:
               value: 'en'
             - name: SWYTCH_SUPPORTED_LANGUAGES
               value: 'en,nl'
+            - name: RDB_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: rdb-host
+                  name: swytch-once
+            - name: RDB_DB
+              valueFrom:
+                secretKeyRef:
+                  key: rdb-db
+                  name: swytch-once
+            - name: RDB_USER
+              valueFrom:
+                secretKeyRef:
+                  key: rdb-user
+                  name: swytch-once
+            - name: RDB_PASS
+              valueFrom:
+                secretKeyRef:
+                  key: rdb-password
+                  name: swytch-once
           resources:
             requests:
               cpu: 100m

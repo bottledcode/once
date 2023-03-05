@@ -14,16 +14,16 @@ use function r\row;
 //ini_set('display_errors', '1');
 //ini_set('error_reporting', E_ALL & !E_DEPRECATED);
 
-define('DATABASE', getenv('RETHINKDB_DATABASE') ?: throw new LogicException('RETHINKDB_DATABASE not set'));
-define('USER', getenv('RETHINKDB_USER') ?: throw new LogicException('RETHINKDB_USER not set'));
-define('PASSWORD', getenv('RETHINKDB_PASSWORD') ?: throw new LogicException('RETHINKDB_PASSWORD not set'));
+define('DATABASE', getenv('RDB_DB') ?: throw new LogicException('RETHINKDB_DATABASE not set'));
+define('USER', getenv('RDB_USER') ?: throw new LogicException('RETHINKDB_USER not set'));
+define('PASSWORD', getenv('RDB_PASS') ?: throw new LogicException('RETHINKDB_PASSWORD not set'));
 
 echo "Starting up...\n";
 
 try {
 	$admin_connection = new Connection(
 		new ConnectionOptions(
-			host: getenv('RETHINKDB_HOST') ?: 'localhost',
+			host: getenv('RDB_HOST') ?: 'localhost',
 			db: 'rethinkdb',
 			user: 'admin',
 			password: getenv('RETHINKDB_ADMIN_PASSWORD') ?: throw new LogicException(
