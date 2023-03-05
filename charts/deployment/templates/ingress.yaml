@@ -65,3 +65,13 @@ spec:
                   number: 80
             pathType: Prefix
             path: /app
+    - host: {{.Values.host}}
+      http:
+        paths:
+          - backend:
+              service:
+                name: swytch-once
+                port:
+                  number: 80
+            pathType: Prefix
+            path: /api/user

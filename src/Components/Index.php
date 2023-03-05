@@ -75,6 +75,7 @@ class Index
 			<DefaultRoute render="<not-found />"></DefaultRoute>
 		</div>
 		<div id="modal"></div>
+		<app:footer></app:footer>
 		</body>
 		</html>
 		<?php

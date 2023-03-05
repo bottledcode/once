@@ -5,12 +5,12 @@ namespace Withinboredom\Once\Components\Send;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 
-#[Component('send:text')]
+#[Component('send-text')]
 class TextInput
 {
 	use RegularPHP;
 
-	public function render(string $name, string $autocomplete, string $placeholder, string $type = 'text'): string
+	public function render(string $name, string $autocomplete, string $placeholder, string $type = 'text', bool $autofocus = false): string
 	{
 		$this->begin();
 		?>
@@ -19,6 +19,7 @@ class TextInput
 			name="{<?= $name ?>}"
 			id="{<?= $name ?>}"
 			required
+			<?= $autofocus ? 'autofocus' : '' ?>
 			maxlength="512"
 			autocomplete="{<?= $autocomplete ?>}"
 			placeholder="{<?= $placeholder ?>}"

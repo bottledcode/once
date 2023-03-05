@@ -5,12 +5,12 @@ namespace Withinboredom\Once\Components\Send;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 
-#[Component('send:checkbox')]
+#[Component('send-checkbox')]
 class Checkbox
 {
 	use RegularPHP;
 
-	public function render(string $name, string $label, string $description): string
+	public function render(string $name, string $label, string $description, bool $checked = false): string
 	{
 		$this->begin();
 		?>
@@ -20,6 +20,7 @@ class Checkbox
 					id="<?= $name ?>"
 					name="<?= $name ?>"
 					type="checkbox"
+					<?= $checked ? 'checked' : '' ?>
 					class="h-4 w-4 rounded border-gray-200 dark:border-gray-700 text-indigo-600 focus:ring-indigo-600"
 				>
 			</div>
