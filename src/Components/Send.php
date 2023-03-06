@@ -30,7 +30,7 @@ readonly class Send
 	public function send(
 		NewMessage $message
 	): string {
-		$savedMessage = $this->messageRepository->save($message);
+		$savedMessage = $this->messageRepository->save($message, $_SERVER['HTTP_X_AUTH_REQUEST_EMAIL']);
 
 		// todo: send email to receiver??
 		$this->historyPush('/sent/' . $savedMessage->id);
@@ -52,7 +52,7 @@ readonly class Send
 						readonly
 						id="message_link"
 						class="rounded-md w-full text-sm dark:bg-gray-900 dark:text-gray-400"
-						value="https://auth.getswytch.com/app/read/{<?= $savedMessage->id ?>}"
+						value="https://once.getswytch.com/app/read/{<?= $savedMessage->id ?>}"
 					>
 					<div
 						class="absolute ease-in-out transition-opacity duration-700 opacity-0 inset-y-0 right-0 flex items-center rounded-md bg-red-600 h-full text-gray-300 text-sm"
@@ -92,18 +92,18 @@ readonly class Send
 		<form hx-put="/api/user/message">
 			<div class="p-5 bg-gray-100 dark:bg-slate-800">
 				<div class="md:grid md:grid-cols-3 md:gap-6">
-					<send:left-part
+					<send-left-part
 						title="{<?= __('Receiver') ?>}"
 						subtitle="{<?= __('Tell us who should receive this message') ?>}"
-					></send:left-part>
+					></send-left-part>
 					<div class="mt-5 md:col-span-2 md:mt-0">
 						<div class="shadow sm:overflow-hidden sm:rounded-md">
 							<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
 								<div class="grid grid-cols-6 gap-6">
 									<div class="col-span-6 sm:col-span-3">
-										<send:label for="first_name">
+										<send-label for="first_name">
 											{<?= __('Name') ?>}
-										</send:label>
+										</send-label>
 										<send-text
 											name="first_name"
 											autocomplete="given-name"
@@ -111,9 +111,9 @@ readonly class Send
 										></send-text>
 									</div>
 									<div class="col-span-6 sm:col-span-3">
-										<send:label for="email_address">
+										<send-label for="email_address">
 											{<?= __('Email address') ?>}
-										</send:label>
+										</send-label>
 										<send-text
 											name="email_address"
 											autocomplete="email"
@@ -134,18 +134,21 @@ readonly class Send
 			</div>
 			<div class="p-5 bg-gray-100 dark:bg-slate-800">
 				<div class="md:grid md:grid-cols-3 md:gap-6">
-					<send:left-part
+					<send-left-part
 						title="{<?= __('What is the message') ?>}"
 						subtitle="{<?= __('Enter the message to deliver') ?>}"
 					>
-					</send:left-part>
+					</send-left-part>
 					<input type="hidden" id="text-editor" name="text_editor" value=""/>
 					<div class="mt-5 md:col-span-2 md:mt-0">
-						<div class="shadow sm:overflow-hidden sm:rounded-md">
+						<div class="shadow sm:rounded-md">
 							<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
 								<div class="grid grid-cols-6 gap-6">
 									<div class="col-span-6 dark:bg-white h-fit">
-										<div id="editor">
+										<div
+											class="prose dark:prose-invert dark:bg-slate-800 w-full max-w-7xl"
+											id="editor"
+										>
 											<p>Enter your message here</p>
 										</div>
 									</div>
@@ -162,10 +165,10 @@ readonly class Send
 			</div>
 			<div class="p-5 bg-gray-100 dark:bg-slate-800">
 				<div class="md:grid md:grid-cols-3 md:gap-6">
-					<send:left-part
+					<send-left-part
 						title="{<?= __('Define your rules') ?>}"
 						subtitle="{<?= __('How will the recipient be allowed to view this message') ?>}"
-					></send:left-part>
+					></send-left-part>
 					<div class="mt-5 md:col-span-2 md:mt-0">
 						<div class="shadow sm:overflow-hidden sm:rounded-md">
 							<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
@@ -228,7 +231,7 @@ readonly class Send
 				</div>
 			</div>
 		</form>
-		<link href="/assets/quill.snow.css" rel="stylesheet">
+		<link href="/assets/quill.bubble.css" rel="stylesheet">
 		<script src="/assets/quill.js"></script>
 		<script src="/assets/editor.js"></script>
 		<?php

@@ -9,9 +9,14 @@ readonly class Message
 		public string $message,
 		public bool $passwordProtected,
 		public string $name,
-		public \DateTimeImmutable|null $expiresAt,
+		public \DateTimeInterface|null $expiresAt,
 		public bool $selfDestruct,
 		public string $id,
+		public string $sender,
 	) {
+	}
+
+	public function with(string $message): Message {
+		return new Message(...[...((array)$this), 'message' => $message]);
 	}
 }

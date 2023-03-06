@@ -1,5 +1,5 @@
 const quill = new Quill('#editor', {
-	theme: 'snow'
+	theme: 'bubble'
 });
 quill.on('text-change', (delta, oldContents, source) => {
 	try {

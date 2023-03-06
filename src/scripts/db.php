@@ -9,7 +9,6 @@ use r\Options\TableCreateOptions;
 
 use function r\db;
 use function r\dbCreate;
-use function r\row;
 
 //ini_set('display_errors', '1');
 //ini_set('error_reporting', E_ALL & !E_DEPRECATED);
@@ -40,6 +39,7 @@ echo "Connected...\n";
 
 $tables = [
 	'messages' => [],
+	'keys' => [],
 ];
 
 doForSuccess(checkDatabaseExists(DATABASE), noop(...), createDatabase(DATABASE));

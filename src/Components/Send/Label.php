@@ -5,7 +5,7 @@ namespace Withinboredom\Once\Components\Send;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 
-#[Component('send:label')]
+#[Component('send-label')]
 class Label
 {
 	use RegularPHP;

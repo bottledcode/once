@@ -12,7 +12,8 @@
 	},
 	"config": {
 		"allow-plugins": {
-			"olvlvl/composer-attribute-collector": true
+			"olvlvl/composer-attribute-collector": true,
+			"pestphp/pest-plugin": true
 		}
 	},
 	"description": "Share secrets easily",
@@ -33,14 +34,17 @@
 		}
 	],
 	"require": {
-		"bottledcode/swytch-framework": "dev-fix-env",
+		"bottledcode/swytch-framework": "^v0.1.5",
+		"ext-mbstring": "*",
 		"ext-sodium": "*",
 		"mbagnall/php-rql": "dev-master",
 		"monolog/monolog": "^3.3",
 		"php": ">=8.2"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest"
+		"roave/security-advisories": "dev-latest",
+		"pestphp/pest": "^1.22",
+		"pestphp/pest-plugin-mock": "^1.0"
 	},
 	"type": "project"
 }

@@ -116,7 +116,7 @@ readonly class Modal
 										</div>
 									</div>
 								</div>
-								<div class="mt-3 text-center">
+								<div class="mt-3 text-center dark:text-gray-300">
 									We do not store this password. You will need to remember it and share it with the
 									recipient.
 								</div>

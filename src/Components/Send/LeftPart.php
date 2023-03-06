@@ -5,7 +5,7 @@ namespace Withinboredom\Once\Components\Send;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 
-#[Component('send:left-part')]
+#[Component('send-left-part')]
 class LeftPart
 {
 	use RegularPHP;

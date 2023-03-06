@@ -72,6 +72,7 @@ class Index
 			<Route path="/app/send" render="<Send />"></Route>
 			<Route path="/app/receive" render="<Receive />"></Route>
 			<Route path="/about" render="<About />"></Route>
+			<Route path="/app/read/:id" render="<Reader messageId='{{:id}}' />"></Route>
 			<DefaultRoute render="<not-found />"></DefaultRoute>
 		</div>
 		<div id="modal"></div>
