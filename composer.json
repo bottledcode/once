@@ -34,7 +34,7 @@
 		}
 	],
 	"require": {
-		"bottledcode/swytch-framework": "^v0.1.5",
+		"bottledcode/swytch-framework": "dev-hooks",
 		"ext-mbstring": "*",
 		"ext-sodium": "*",
 		"mbagnall/php-rql": "dev-master",
