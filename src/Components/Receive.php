@@ -20,8 +20,8 @@ class Receive
 			</div>
 			<input
 				type="text"
-				disabled
-				value="https://once.getswytch.com/sendto/"
+				readonly
+				value="https://once.getswytch.com/sendto/<?= strstr($_SERVER['HTTP_X_AUTH_REQUEST_USER'], ':', true) ?>"
 				class="dark:text-gray-300 dark:bg-gray-900 rounded-md mt-3 w-full max-w-2xl"
 			>
 		</div>

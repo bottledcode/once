@@ -41,18 +41,22 @@ class Navbar
 					<div class="flex items-center">
 						<div class="flex-shrink-0">
 							<img
-								class="h-8 w-8"
-								src="/assets/logo-small.svg"
-								alt="Swytch"
+								class="h-8 w-8" src="/assets/logo-small.svg" alt="<?= __('Swytch') ?>"
 							>
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
 								<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-								<NavbarPageSelector href="/" label="Home"></NavbarPageSelector>
-								<NavbarPageSelector href="/app/send" label="Send"></NavbarPageSelector>
-								<NavbarPageSelector href="/app/receive" label="Receive"></NavbarPageSelector>
-								<NavbarPageSelector href="/about" label="About"></NavbarPageSelector>
+								<NavbarPageSelector href="/" label="<?= __('Home') ?>"></NavbarPageSelector>
+								<NavbarPageSelector href="/app/send" label="<?= __('Send') ?>"></NavbarPageSelector>
+								<NavbarPageSelector
+									href="/app/receive" label="<?= __('Receive') ?>"
+								></NavbarPageSelector>
+								<NavbarPageSelector href="/about" label="<?= __('About') ?>"></NavbarPageSelector>
+								<NAVBARPAGESELECTOR
+									href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+									label="<?= __('Logout') ?>"
+								></NAVBARPAGESELECTOR>
 							</div>
 						</div>
 					</div>
@@ -65,17 +69,17 @@ class Navbar
 								aria-controls="mobile-menu"
 								aria-expanded="false"
 							>
-								<span class="sr-only">Open main menu</span>
+								<span class="sr-only"><?= __('Open main menu') ?></span>
 								<img
 									class="<?= $open ? 'hidden' : 'block' ?> h-6 w-6"
 									src="/assets/hamburger.svg"
-									alt="open"
+									alt="<?= __('open') ?>"
 								>
 								<!-- Menu open: "block", Menu closed: "hidden" -->
 								<img
 									class="<?= $open ? 'block' : 'hidden' ?> h-6 w-6"
 									src="/assets/close.svg"
-									alt="close"
+									alt="<?= __('close') ?>"
 								>
 							</button>
 						</form>
@@ -89,10 +93,19 @@ class Navbar
 				<div class="md:hidden" id="mobile-menu">
 					<div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-						<NavbarPageSelector mobile="true" href="/" label="Home"></NavbarPageSelector>
-						<NavbarPageSelector mobile="true" href="/app/send" label="Send"></NavbarPageSelector>
-						<NavbarPageSelector mobile="true" href="/app/receive" label="Receive"></NavbarPageSelector>
-						<NavbarPageSelector mobile="true" href="/about" label="About"></NavbarPageSelector>
+						<NavbarPageSelector mobile="true" href="/" label="<?= __('Home') ?>"></NavbarPageSelector>
+						<NavbarPageSelector
+							mobile="true" href="/app/send" label="<?= __('Send') ?>"
+						></NavbarPageSelector>
+						<NavbarPageSelector
+							mobile="true" href="/app/receive" label="<?= __('Receive') ?>"
+						></NavbarPageSelector>
+						<NavbarPageSelector mobile="true" href="/about" label="<?= __('About') ?>"></NavbarPageSelector>
+						<NAVBARPAGESELECTOR
+							href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+							label="<?= __('Logout') ?>"
+							mobile
+						></NAVBARPAGESELECTOR>
 					</div>
 				</div>
 			<?php

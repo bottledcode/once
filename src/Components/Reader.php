@@ -36,10 +36,11 @@ readonly class Reader
 			$this->begin();
 			?>
 			<div class="p-5 bg-gray-100 dark:text-gray-300 dark:bg-slate-800 min-h-full prose dark:prose-invert">
-				<h2>This message has expired</h2>
+				<h2><?= __('This message has expired') ?></h2>
 				<p>
-					There was a message here, but it has expired and thus, inaccessible. The sender will need to send it
-					again. There is nothing support can do, so don't bother asking.
+					<?= __(
+						"There was a message here, but it has expired and thus, inaccessible. The sender will need to send it again. There is nothing support can do, so don't bother asking."
+					) ?>
 				</p>
 			</div>
 			<?php
@@ -52,10 +53,9 @@ readonly class Reader
 					<div class="p-5 bg-gray-100 dark:bg-slate-800">
 						<div class="md:grid md:grid-cols-3 md:gap-6">
 							<send-left-part
-								title="{<?= __('A password is required') ?>}"
-								subtitle="{<?= __(
-									'The sender has password protected this message. They need to share that with you, or maybe you are a lucky guesser.'
-								) ?>}"
+								title="<?= __('A password is required') ?>" subtitle="<?= __(
+								'The sender has password protected this message. They need to share that with you, or maybe you are a lucky guesser.'
+							) ?>"
 							></send-left-part>
 							<div class="mt-5 md:col-span-2 md:mt-0">
 								<div class="shadow sm:overflow-hidden sm:rounded-md">
@@ -63,7 +63,7 @@ readonly class Reader
 										<div class="grid grid-cols-6 gap-6">
 											<div class="col-span-6 sm:col-span-3">
 												<send-label for="first_name">
-													{<?= __('Password') ?>}
+													<?= __('Password') ?>
 												</send-label>
 												<send-text
 													name="password"
@@ -78,10 +78,11 @@ readonly class Reader
 								<div class="bg-gray-50 dark:bg-slate-600 px-4 py-3 grid grid-cols-2 sm:px-6">
 									<div class="col-span-1">
 										<p class=" prose dark:prose-invert">
-											{<?= p__('A link to swytch follows', 'Do this and more with') ?>} <a
-												class=""
-												href="https://getswytch.com"
-											>Swytch</a>
+											<?= p__('A link to swytch follows', 'Do this and more with') ?>}
+											<a
+												class="" href="https://getswytch.com"
+											>Swytch
+											</a>
 										</p>
 									</div>
 									<div class="col-span-1 text-right">
@@ -89,7 +90,7 @@ readonly class Reader
 											type="submit"
 											class="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
 										>
-											{<?= __('Unlock') ?>}
+											<?= __('Unlock') ?>
 										</button>
 									</div>
 								</div>
@@ -106,9 +107,11 @@ readonly class Reader
 		if ($message === null) {
 			?>
 			<div class="p-5 bg-gray-100 dark:text-gray-300 dark:bg-slate-800 min-h-full">
-				No message found
+				<?= __('No message found') ?>
 
-				Please make sure you are signed in with the correct email address and that you have the correct link.
+				<?= __(
+					'Please make sure you are signed in with the correct email address and that you have the correct link.'
+				) ?>
 			</div>
 			<?php
 			return $this->end();
@@ -118,7 +121,6 @@ readonly class Reader
 		<script src="/assets/quill.js"></script>
 		<div class="p-5 bg-gray-100 dark:text-gray-300 dark:bg-slate-800 min-h-full">
 			<div class="grid grid-cols-1 prose dark:prose-invert prose-lg lg:prose-xl">
-				<h2 class="text-xl font-semibold">A message from {<?= $message->sender ?>}</h2>
 				<div class="text-xl" id="viewer"></div>
 				<input type="hidden" id="message" value="{<?= $message->message ?>}">
 			</div>

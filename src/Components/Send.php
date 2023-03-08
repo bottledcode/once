@@ -39,12 +39,18 @@ readonly class Send
 		?>
 		<div class="p-5 bg-gray-100 dark:bg-slate-800 min-h-full">
 			<div class="grid grid-cols-1">
-				<h2 class="text-xl font-semibold tracking-tight mx-auto dark:text-gray-300">Your message has been
-					stored</h2>
+				<h2 class="text-xl font-semibold tracking-tight mx-auto dark:text-gray-300">
+					<?= __('Your message has been stored') ?></h2>
 				<p class="mx-auto py-3 dark:text-gray-300">
-					<strong>What now?</strong> Below is a link to your message. Only the person who has this link and
-					the ability to login with that email address can read your message. <strong>We do <em>NOT</em> send
-						an email to your recipient for you. You will need to give them the link below.</strong>
+					<strong><?= __('What now?') ?></strong>
+					<?= __(
+						'Below is a link to your message. Only the person who has this link and the ability to login with that email address can read your message.'
+					) ?>
+					<strong>
+						<?= __(
+							'We do <em>NOT</em> send an email to your recipient for you. You will need to give them the link below.'
+						) ?>
+					</strong>
 				</p>
 				<div class="my-3 relative">
 					<input
@@ -52,18 +58,18 @@ readonly class Send
 						readonly
 						id="message_link"
 						class="rounded-md w-full text-sm dark:bg-gray-900 dark:text-gray-400"
-						value="https://once.getswytch.com/app/read/{<?= $savedMessage->id ?>}"
+						value="https://once.getswytch.com/read/{<?= $savedMessage->id ?>}"
 					>
 					<div
 						class="absolute ease-in-out transition-opacity duration-700 opacity-0 inset-y-0 right-0 flex items-center rounded-md bg-red-600 h-full text-gray-300 text-sm"
 						id="message_copied"
 					>
-						Copied to clipboard
+						<?= __('Copied to clipboard') ?>
 					</div>
 					<script src="/assets/copy-to-cb.js"></script>
 				</div>
 				<div class="py-6 dark:text-gray-300 mx-auto">
-					Send <a href="/app/send" class="underline font-semibold">another message</a>
+					<?= __('Send <a href="/app/send" class="underline font-semibold">another message</a>') ?>
 				</div>
 			</div>
 		</div>
@@ -82,16 +88,17 @@ readonly class Send
 		return $this->html($this->end());
 	}
 
-	public function render(): string
+	public function render(string|null $receiver = null): string
 	{
 		$this->begin();
 		?>
-		<script xmlns:send="http://www.w3.org/1999/html">
+		<script>
 			document.title = '{<?= __('Once — Send A Message') ?>}';
 		</script>
 		<form hx-put="/api/user/message">
 			<div class="p-5 bg-gray-100 dark:bg-slate-800">
 				<div class="md:grid md:grid-cols-3 md:gap-6">
+					<?php if ($receiver === null): ?>
 					<send-left-part
 						title="{<?= __('Receiver') ?>}"
 						subtitle="{<?= __('Tell us who should receive this message') ?>}"
@@ -125,6 +132,9 @@ readonly class Send
 							</div>
 						</div>
 					</div>
+					<?php else: ?>
+					<input name="receiver" value="{<?= $receiver ?>}" type="hidden">
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="hidden sm:block" aria-hidden="true">
@@ -137,8 +147,7 @@ readonly class Send
 					<send-left-part
 						title="{<?= __('What is the message') ?>}"
 						subtitle="{<?= __('Enter the message to deliver') ?>}"
-					>
-					</send-left-part>
+					></send-left-part>
 					<input type="hidden" id="text-editor" name="text_editor" value=""/>
 					<div class="mt-5 md:col-span-2 md:mt-0">
 						<div class="shadow sm:rounded-md">
@@ -182,18 +191,14 @@ readonly class Send
 									</div>
 									<div class="mt-4 space-y-4">
 										<send-checkbox
-											name="once_rule"
-											label="{<?= __('Self-destruct') ?>}"
-											description="{<?= __(
-												'Only allow this message to be viewed exactly once'
-											) ?>}"
+											name="once_rule" label="{<?= __('Self-destruct') ?>}" description="{<?= __(
+											'Only allow this message to be viewed exactly once'
+										) ?>}"
 										></send-checkbox>
 										<send-checkbox
-											name="time_limit"
-											label="{<?= __('Time limit') ?>}"
-											description="{<?= __(
-												'This message will only be available for 12 hours. The default is 72 hours.'
-											) ?>}"
+											name="time_limit" label="{<?= __('Time limit') ?>}" description="{<?= __(
+											'This message will only be available for 12 hours. The default is 72 hours.'
+										) ?>}"
 										></send-checkbox>
 										<send-checkbox
 											id="password_checkbox"
@@ -211,10 +216,11 @@ readonly class Send
 							<div class="bg-gray-50 dark:bg-slate-600 px-4 py-3 grid grid-cols-2 sm:px-6">
 								<div class="col-span-1">
 									<p class=" prose dark:prose-invert">
-										{<?= p__('A link to swytch follows', 'Do this and more with') ?>} <a
-											class=""
-											href="https://getswytch.com"
-										>Swytch</a>
+										{<?= p__('A link to swytch follows', 'Do this and more with') ?>}
+										<a
+											class="" href="https://getswytch.com"
+										>Swytch
+										</a>
 									</p>
 								</div>
 								<div class="col-span-1 text-right">

@@ -18,9 +18,14 @@ readonly class MessageRepository
 	{
 	}
 
+	public function exists(string $id): bool {
+		return table('messages')->get($id)->run($this->connection) !== null;
+	}
+
 	public function get(string $id, string $for, string|null $password = null): Message|null
 	{
 		$result = table('messages')->get($id)->run($this->connection);
+		$for = uuid($for)->run($this->connection);
 		if ($result === null) {
 			return null;
 		}
@@ -106,14 +111,16 @@ readonly class MessageRepository
 	{
 		$password = $message->set_password ? $message->password ?? '' : '';
 		$id = uuid()->run($this->connection);
+		$sender = uuid($sender)->run($this->connection);
+		$receiver = $message->receiver ?? uuid($message->email_address)->run($this->connection);
 		$encryptedMessage = $message->text_editor;
-		$encryptedMessage = $this->encrypt($encryptedMessage, $sender, $message->email_address);
+		$encryptedMessage = $this->encrypt($encryptedMessage, $sender, $receiver);
 		if ($message->set_password) {
-			$encryptedMessage = $this->passwordProtect($encryptedMessage, $password, $message->email_address, $sender);
+			$encryptedMessage = $this->passwordProtect($encryptedMessage, $password, $receiver, $sender);
 		}
 
 		$toSave = new Message(
-			mb_strtolower($message->email_address),
+			$receiver,
 			$encryptedMessage,
 			strlen($password) > 0,
 			$message->first_name,

@@ -38,10 +38,7 @@ readonly class Modal
 		></send-checkbox>
 		<div id="modal" hx-swap-oob="true"></div>
 		<input
-			type="hidden"
-			name="password"
-			id="password"
-			value="{<?= $password ?>}"
+			type="hidden" name="password" id="password" value="{<?= $password ?>}"
 		>
 		<?php
 		return $this->html($this->end());
@@ -98,8 +95,8 @@ readonly class Modal
 									</div>
 									<div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
 										<h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-gray-300">
-											Set a
-											password</h3>
+											<?= __('Set a password') ?>
+										</h3>
 										<div class="mt-2">
 											<input
 												type="text"
@@ -110,15 +107,16 @@ readonly class Modal
 												autofocus
 												maxlength="512"
 												autocomplete="new-password"
-												placeholder="enter a password"
+												placeholder="<?= __('Enter a password') ?>"
 												class="mt-2 block w-full rounded-md border-0 py-1.5 dark:text-gray-300 dark:bg-gray-800 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
 											>
 										</div>
 									</div>
 								</div>
 								<div class="mt-3 text-center dark:text-gray-300">
-									We do not store this password. You will need to remember it and share it with the
-									recipient.
+									<?= __(
+										'We do not store this password. You will need to remember it and share it with the recipient.'
+									) ?>
 								</div>
 							</div>
 							<div class="bg-gray-50 dark:bg-slate-600 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
@@ -127,14 +125,14 @@ readonly class Modal
 									hx-get="/api/modal/close"
 									class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
 								>
-									Go back
+									<?= __('Go back') ?>
 								</button>
 								<button
 									type="submit"
 									hx-post="/api/modal/set-password"
 									class="mt-3 inline-flex w-full justify-center rounded-md dark:bg-slate-400 bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
 								>
-									Set the password
+									<?= __('Set the password') ?>
 								</button>
 							</div>
 						</div>
