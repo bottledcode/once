@@ -17,6 +17,6 @@ class AuthService implements AuthenticationServiceInterface
 	{
 		$user = $_SERVER['HTTP_X_AUTH_REQUEST_USER'] ?? null;
 
-		return $user !== null;
+		return !empty($user);
 	}
 }

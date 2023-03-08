@@ -8,6 +8,7 @@ use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Compiler;
 use Bottledcode\SwytchFramework\Template\Traits\Htmx;
 use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
+use Withinboredom\Once\Services\AuthService;
 
 #[Component('navbar')]
 class Navbar
@@ -15,7 +16,7 @@ class Navbar
 	use RegularPHP;
 	use Htmx;
 
-	public function __construct(private readonly Compiler $compiler)
+	public function __construct(private readonly Compiler $compiler, private readonly AuthService $authService)
 	{
 	}
 
@@ -40,9 +41,11 @@ class Navbar
 				<div class="flex h-16 items-center justify-between">
 					<div class="flex items-center">
 						<div class="flex-shrink-0">
-							<img
-								class="h-8 w-8" src="/assets/logo-small.svg" alt="<?= __('Swytch') ?>"
-							>
+							<a href="/">
+								<img
+									class="h-8 w-8" src="/assets/logo-small.svg" alt="<?= __('Swytch') ?>"
+								>
+							</a>
 						</div>
 						<div class="hidden md:block">
 							<div class="ml-10 flex items-baseline space-x-4">
@@ -53,10 +56,14 @@ class Navbar
 									href="/app/receive" label="<?= __('Receive') ?>"
 								></NavbarPageSelector>
 								<NavbarPageSelector href="/about" label="<?= __('About') ?>"></NavbarPageSelector>
-								<NAVBARPAGESELECTOR
-									href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
-									label="<?= __('Logout') ?>"
-								></NAVBARPAGESELECTOR>
+								<?php
+								if ($this->authService->isAuthenticated()): ?>
+									<NAVBARPAGESELECTOR
+										href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+										label="<?= __('Logout') ?>"
+									></NAVBARPAGESELECTOR>
+								<?php
+								endif; ?>
 							</div>
 						</div>
 					</div>
@@ -101,11 +108,15 @@ class Navbar
 							mobile="true" href="/app/receive" label="<?= __('Receive') ?>"
 						></NavbarPageSelector>
 						<NavbarPageSelector mobile="true" href="/about" label="<?= __('About') ?>"></NavbarPageSelector>
-						<NAVBARPAGESELECTOR
-							href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
-							label="<?= __('Logout') ?>"
-							mobile
-						></NAVBARPAGESELECTOR>
+						<?php
+						if ($this->authService->isAuthenticated()): ?>
+							<NAVBARPAGESELECTOR
+								href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+								label="<?= __('Logout') ?>"
+								mobile
+							></NAVBARPAGESELECTOR>
+						<?php
+						endif; ?>
 					</div>
 				</div>
 			<?php

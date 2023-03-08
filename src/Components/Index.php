@@ -56,7 +56,7 @@ class Index
 		}
 
 		$this->headers->setTitle('Once — Secret Messages');
-		$this->headers->addCss('/assets/compiled.css');
+		$this->headers->addCss('app', '/assets/compiled.css');
 		$this->headers->setOpenGraph(
 			'https://once.getswytch.com',
 			__('Once — Securely share secrets'),

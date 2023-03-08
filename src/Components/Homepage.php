@@ -92,14 +92,14 @@ class Homepage
 							'When your recipient opens the link, they will be able to read the message, and it will be deleted from our servers after the configured rules are applied.'
 						) ?>
 					</p>
-					<form action="/app/send" method="get">
+					<a href="/app/send">
 						<button
-							type="submit"
+							type="button"
 							class="inline-block rounded-md bg-indigo-600 px-6 pt-2.5 pb-2 text-sm font-medium uppercase leading-normal text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 mt-8"
 						>
 							<?= __('Send your first message') ?>
 						</button>
-					</form>
+					</a>
 				</div>
 			</div>
 		</div>

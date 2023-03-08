@@ -98,43 +98,46 @@ readonly class Send
 		<form hx-put="/api/user/message">
 			<div class="p-5 bg-gray-100 dark:bg-slate-800">
 				<div class="md:grid md:grid-cols-3 md:gap-6">
-					<?php if ($receiver === null): ?>
-					<send-left-part
-						title="{<?= __('Receiver') ?>}"
-						subtitle="{<?= __('Tell us who should receive this message') ?>}"
-					></send-left-part>
-					<div class="mt-5 md:col-span-2 md:mt-0">
-						<div class="shadow sm:overflow-hidden sm:rounded-md">
-							<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
-								<div class="grid grid-cols-6 gap-6">
-									<div class="col-span-6 sm:col-span-3">
-										<send-label for="first_name">
-											{<?= __('Name') ?>}
-										</send-label>
-										<send-text
-											name="first_name"
-											autocomplete="given-name"
-											placeholder="{<?= __('My best friend') ?>}"
-										></send-text>
-									</div>
-									<div class="col-span-6 sm:col-span-3">
-										<send-label for="email_address">
-											{<?= __('Email address') ?>}
-										</send-label>
-										<send-text
-											name="email_address"
-											autocomplete="email"
-											type="email"
-											placeholder="{<?= __('friend@example.com') ?>}"
-										></send-text>
+					<?php
+					if ($receiver === null): ?>
+						<send-left-part
+							title="{<?= __('Receiver') ?>}"
+							subtitle="{<?= __('Tell us who should receive this message') ?>}"
+						></send-left-part>
+						<div class="mt-5 md:col-span-2 md:mt-0">
+							<div class="shadow sm:overflow-hidden sm:rounded-md">
+								<div class="space-y-6 bg-white dark:bg-gray-900 px-4 py-5 sm:p-6">
+									<div class="grid grid-cols-6 gap-6">
+										<div class="col-span-6 sm:col-span-3">
+											<send-label for="first_name">
+												{<?= __('Name') ?>}
+											</send-label>
+											<send-text
+												name="first_name"
+												autocomplete="given-name"
+												placeholder="{<?= __('My best friend') ?>}"
+											></send-text>
+										</div>
+										<div class="col-span-6 sm:col-span-3">
+											<send-label for="email_address">
+												{<?= __('Email address') ?>}
+											</send-label>
+											<send-text
+												name="email_address"
+												autocomplete="email"
+												type="email"
+												placeholder="{<?= __('friend@example.com') ?>}"
+											></send-text>
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-					<?php else: ?>
-					<input name="receiver" value="{<?= $receiver ?>}" type="hidden">
-					<?php endif; ?>
+					<?php
+					else: ?>
+						<input name="receiver" value="{<?= $receiver ?>}" type="hidden">
+					<?php
+					endif; ?>
 				</div>
 			</div>
 			<div class="hidden sm:block" aria-hidden="true">
@@ -157,9 +160,7 @@ readonly class Send
 										<div
 											class="prose dark:prose-invert dark:bg-slate-800 w-full max-w-7xl"
 											id="editor"
-										>
-											<p>Enter your message here</p>
-										</div>
+										></div>
 									</div>
 								</div>
 							</div>
@@ -237,7 +238,7 @@ readonly class Send
 				</div>
 			</div>
 		</form>
-		<link href="/assets/quill.bubble.css" rel="stylesheet">
+		<link href="/assets/quill.snow.css" rel="stylesheet">
 		<script src="/assets/quill.js"></script>
 		<script src="/assets/editor.js"></script>
 		<?php

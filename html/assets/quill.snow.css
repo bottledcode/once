@@ -6,8 +6,8 @@
  */
 .ql-container {
     box-sizing: border-box;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    /*font-size: 13px;*/
     height: 100%;
     margin: 0px;
     position: relative;
@@ -36,7 +36,7 @@
 
 .ql-editor {
     box-sizing: border-box;
-    line-height: 1.42;
+    /*line-height: 1.42;*/
     height: 100%;
     outline: none;
     overflow-y: auto;
@@ -461,11 +461,11 @@
 }
 
 .ql-editor .ql-font-serif {
-    font-family: Georgia, Times New Roman, serif;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .ql-editor .ql-font-monospace {
-    font-family: Monaco, Courier New, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .ql-editor .ql-size-small {
@@ -498,7 +498,7 @@
 }
 
 .ql-editor.ql-blank::before {
-    color: rgba(0, 0, 0, 0.6);
+    /*color: rgba(0, 0, 0, 0.6);*/
     content: attr(data-placeholder);
     font-style: italic;
     left: 15px;
@@ -788,7 +788,7 @@
 
 .ql-snow .ql-editor pre.ql-syntax {
     background-color: #23241f;
-    color: #f8f8f2;
+    /*color: #f8f8f2;*/
     overflow: visible;
 }
 
@@ -997,11 +997,11 @@
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
-    font-family: Georgia, Times New Roman, serif;
+    font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
-    font-family: Monaco, Courier New, monospace;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .ql-snow .ql-picker.ql-size {
@@ -1051,7 +1051,7 @@
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     padding: 8px;
 }
 

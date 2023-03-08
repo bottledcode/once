@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Html\HeadTagFilter;
 use Bottledcode\SwytchFramework\Router\Attributes\Route;
 use Bottledcode\SwytchFramework\Router\Method;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
@@ -18,8 +19,11 @@ readonly class Reader
 	use Htmx;
 	use RegularPHP;
 
-	public function __construct(private Compiler $compiler, private MessageRepository $messageRepository)
-	{
+	public function __construct(
+		private Compiler $compiler,
+		private MessageRepository $messageRepository,
+		private HeadTagFilter $htmlHeaders
+	) {
 	}
 
 	#[Route(Method::PUT, '/api/user/message/decrypt')]
@@ -30,6 +34,11 @@ readonly class Reader
 
 	public function render(string $messageId, string|null $password = null): string
 	{
+		$this->htmlHeaders->addCss('snow-theme', '/assets/quill.snow.css');
+		$this->htmlHeaders->addCss('snow-disabled', '/assets/quill.snow.disabled.css');
+		//$this->htmlHeaders->addScript('quill', '/assets/quill.js', defer: true);
+		//$this->htmlHeaders->addScript('reader', '/assets/reader.js', defer: true);
+
 		try {
 			$message = $this->messageRepository->get($messageId, $_SERVER['HTTP_X_AUTH_REQUEST_EMAIL'], $password);
 		} catch (MessageExpired) {
