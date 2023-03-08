@@ -1,0 +1,41 @@
+name: Deployment
+concurrency:
+  group: swytch-once-deployment
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: self-hosted
+    environment: Production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+        with:
+          install: true
+      - name: Install DevSpace
+        uses: loft-sh/setup-devspace@main
+      - name: Install Loft
+        uses: loft-sh/setup-loft@v2
+        with:
+          # version: v1.15.0
+          url: https://kube.bottled.codes
+          access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+      - name: Inject values
+        run: echo "${{ secrets.DEPLOYMENT_VALUES }}" > deployment.values.yaml
+      - name: Switch to namespace
+        run: loft use space once
+      - name: Execute
+        run: devspace deploy
