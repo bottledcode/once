@@ -15,7 +15,7 @@ class ReadRedirector
 	use RegularPHP;
 
 	public function __construct(
-		private readonly HeadTagFilter $headers,
+		private readonly HeadTagFilter $htmlHead,
 		private readonly MessageRepository $messageRepository,
 	) {
 	}
@@ -26,13 +26,13 @@ class ReadRedirector
 			throw new \Bottledcode\SwytchFramework\Router\Exceptions\NotFound();
 		}
 
-		$this->headers->setOpenGraph(
+		$this->htmlHead->setOpenGraph(
 			'https://once.getswytch.com/read/' . $messageId,
 			'Once — Read your secret message',
 			'A friend has sent you a secret message. Read it here.',
 			'https://once.getswytch.com/assets/preview.png'
 		);
-		$this->headers->setTitle('Once — Read your secret message');
+		$this->htmlHead->setTitle('Once — Read your secret message');
 
 		$this->begin();
 		?>

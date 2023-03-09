@@ -15,20 +15,20 @@ class Sendto
 	use RegularPHP;
 
 	public function __construct(
-		private readonly HeadTagFilter $headers,
+		private readonly HeadTagFilter $htmlHead,
 		private readonly MessageRepository $messageRepository,
 	) {
 	}
 
 	public function render(string $receiver): string
 	{
-		$this->headers->setOpenGraph(
+		$this->htmlHead->setOpenGraph(
 			'https://once.getswytch.com/sendto/' . $receiver,
 			'Once — Read your secret message',
 			'A friend has sent you a secret message. Read it here.',
 			'https://once.getswytch.com/assets/preview.png'
 		);
-		$this->headers->setTitle('Once — Read your secret message');
+		$this->htmlHead->setTitle('Once — Read your secret message');
 
 		$this->begin();
 		?>
