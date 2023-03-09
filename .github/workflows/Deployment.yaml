@@ -36,6 +36,6 @@ jobs:
       - name: Inject values
         run: echo "${{ secrets.DEPLOYMENT_VALUES }}" > deployment.values.yaml
       - name: Switch to namespace
-        run: loft use space once
+        run: loft use cluster && devspace use namespace once
       - name: Execute
         run: devspace deploy
