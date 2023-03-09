@@ -1,6 +1,9 @@
 <?php
+
 namespace Withinboredom\Once\Exceptions;
 
-class MessageExpired extends \DomainException
+use DomainException;
+
+class MessageExpired extends DomainException
 {
 }

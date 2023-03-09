@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Router\Attributes\Route;
 use Bottledcode\SwytchFramework\Router\Method;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
@@ -15,7 +16,7 @@ readonly class Modal
 	use RegularPHP;
 	use Htmx;
 
-	public function __construct(private Compiler $compiler)
+	public function __construct(private Compiler $compiler, private Headers $headers)
 	{
 	}
 

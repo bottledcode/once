@@ -17,9 +17,7 @@ class Checkbox
 		<div class="flex items-start">
 			<div class="flex h-6 items-center">
 				<input
-					id="<?= $name ?>"
-					name="<?= $name ?>"
-					type="checkbox"
+					id="<?= $name ?>" name="<?= $name ?>" type="checkbox"
 					<?= $checked ? 'checked' : '' ?>
 					class="h-4 w-4 rounded border-gray-200 dark:border-gray-700 text-indigo-600 focus:ring-indigo-600"
 				>

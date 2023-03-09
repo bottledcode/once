@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Compiler;
 use Bottledcode\SwytchFramework\Template\Traits\Htmx;
@@ -13,7 +14,7 @@ class Homepage
 	use Htmx;
 	use RegularPHP;
 
-	public function __construct(private readonly Compiler $compiler)
+	public function __construct(private readonly Compiler $compiler, private readonly Headers $headers)
 	{
 	}
 

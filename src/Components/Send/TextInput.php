@@ -10,8 +10,13 @@ class TextInput
 {
 	use RegularPHP;
 
-	public function render(string $name, string $autocomplete, string $placeholder, string $type = 'text', bool $autofocus = false): string
-	{
+	public function render(
+		string $name,
+		string $autocomplete,
+		string $placeholder,
+		string $type = 'text',
+		bool $autofocus = false
+	): string {
 		$this->begin();
 		?>
 		<input

@@ -18,7 +18,8 @@ readonly class MessageRepository
 	{
 	}
 
-	public function exists(string $id): bool {
+	public function exists(string $id): bool
+	{
 		return table('messages')->get($id)->run($this->connection) !== null;
 	}
 

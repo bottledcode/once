@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Router\Attributes\Authorized;
 use Bottledcode\SwytchFramework\Router\Attributes\Route;
 use Bottledcode\SwytchFramework\Router\Method;
@@ -21,8 +22,11 @@ readonly class Send
 	use RegularPHP;
 	use Htmx;
 
-	public function __construct(private Compiler $compiler, private MessageRepository $messageRepository)
-	{
+	public function __construct(
+		private Compiler $compiler,
+		private MessageRepository $messageRepository,
+		private Headers $headers
+	) {
 	}
 
 	#[Route(Method::PUT, '/api/user/message')]

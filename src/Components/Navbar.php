@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Router\Attributes\Route;
 use Bottledcode\SwytchFramework\Router\Method;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
@@ -16,8 +17,11 @@ class Navbar
 	use RegularPHP;
 	use Htmx;
 
-	public function __construct(private readonly Compiler $compiler, private readonly AuthService $authService)
-	{
+	public function __construct(
+		private readonly Compiler $compiler,
+		private readonly AuthService $authService,
+		private readonly Headers $headers
+	) {
 	}
 
 	#[Route(Method::POST, '/api/navbar/open')]

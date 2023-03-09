@@ -2,6 +2,8 @@
 
 namespace Withinboredom\Once\Exceptions;
 
-class PasswordRequired extends \DomainException
+use DomainException;
+
+class PasswordRequired extends DomainException
 {
 }

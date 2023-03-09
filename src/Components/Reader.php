@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Hooks\Html\HeadTagFilter;
 use Bottledcode\SwytchFramework\Router\Attributes\Route;
 use Bottledcode\SwytchFramework\Router\Method;
@@ -22,7 +23,8 @@ readonly class Reader
 	public function __construct(
 		private Compiler $compiler,
 		private MessageRepository $messageRepository,
-		private HeadTagFilter $htmlHeaders
+		private HeadTagFilter $htmlHeaders,
+		private Headers $headers
 	) {
 	}
 

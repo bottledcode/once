@@ -46,7 +46,7 @@ class Sendto
 		</div>
 		<script>
 			setTimeout(() =>
-				window.location.href = '/app/send/{<?= $receiver ?>}'
+					window.location.href = '/app/send/{<?= $receiver ?>}'
 				, 1000)
 		</script>
 		<?php

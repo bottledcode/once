@@ -2,6 +2,7 @@
 
 namespace Withinboredom\Once\Components;
 
+use Bottledcode\SwytchFramework\Hooks\Common\Headers;
 use Bottledcode\SwytchFramework\Hooks\Html\HeadTagFilter;
 use Bottledcode\SwytchFramework\Template\Attributes\Component;
 use Bottledcode\SwytchFramework\Template\Traits\Htmx;
@@ -17,6 +18,7 @@ class ReadRedirector
 	public function __construct(
 		private readonly HeadTagFilter $htmlHead,
 		private readonly MessageRepository $messageRepository,
+		private readonly Headers $headers,
 	) {
 	}
 
