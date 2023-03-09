@@ -108,16 +108,8 @@ doForSuccess(static function () use ($admin_connection) {
 });
 echo "User created\n\nGranting access\n";
 doForSuccess(static function () use ($admin_connection) {
-	foreach (
-		db('rethinkdb')
-			->table('permissions')
-			->filter(['database' => DATABASE, 'user' => USER])
-			->run($admin_connection) as $permission
-	) {
-		return true;
-	}
-
-	return false;
+	$result = db(DATABASE)->grant(USER, read: true, write: true, config: true)->run($admin_connection);
+	return $result['granted'] == 1;
 }, noop(...), static function () use ($admin_connection) {
 	echo "Visit http://" . dns_get_record(
 			getenv('RETHINKDB_HOST'),
