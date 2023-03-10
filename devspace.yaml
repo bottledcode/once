@@ -5,9 +5,9 @@ vars:
   STATE_SECRET: not-a-secret
   IMAGE: 'registry.bottled.codes/swytch/once'
   RETHINKDB_HOST: rethinkdb-main-rethinkdb-proxy.main.svc.cluster.local
-  RETHINKDB_USER: swytch-auth
+  RETHINKDB_USER: swytch-once
   RETHINKDB_PASSWORD: not-a-secret
-  RETHINKDB_DB: swytch-auth
+  RETHINKDB_DB: swytch-once
   AUTH_HOST: auth.getswytch.com
   REPLICAS: 2
   HOST: once.getswytch.com
