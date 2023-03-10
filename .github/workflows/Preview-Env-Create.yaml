@@ -48,6 +48,12 @@ jobs:
           loft create vcluster once-preview-${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
       - name: Deploy
         run: |
-          devspace use namespace once
-          devspace deploy
-          devspace migrate
+          devspace use namespace once --no-warn
+          devspace deploy --no-warn -t ${{ github.sha }} --skip-build --skip-push
+          RETHINKDB_ADMIN_PASSWORD=${{ secrets.RETHINKDB_ADMIN_PASSWORD }} devspace run-pipeline db-migrate
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          number: ${{ github.event.pull_request.number }}
+          header: release
+          message: |
+            Preview environment deployed at: http://${{ github.event.pull_request.number }}.once.getswytch.com
