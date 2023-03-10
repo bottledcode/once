@@ -14,7 +14,7 @@ vars:
 
 dependencies:
   auth:
-    namespace: swytch-auth
+    namespace: auth
     branch: main-v2
     git: https://github.com/bottledcode/swytch-auth.git
     vars:
