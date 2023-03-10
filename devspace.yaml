@@ -37,7 +37,6 @@ pipelines:
       loft wakeup space image-builder
       kubectl create namespace swytch-auth
       run_dependencies --all --pipeline deploy
-      run_dependencies --all --pipeline db-migrate
       ensure_pull_secrets --all
       build_images --all
       devspace reset pods
@@ -52,6 +51,7 @@ pipelines:
       echo "Migrating database: waiting for pod to be ready..."
       wait_pod --image-selector=registry.bottled.codes/swytch/once
       echo "Migrating database: running migrations..."
+      run_dependencies --all --pipeline db-migrate
       exec_container --image-selector=registry.bottled.codes/swytch/once php src/scripts/db.php $RETHINKDB_ADMIN_PASSWORD
 
 # This is a list of `images` that DevSpace can build for this project
