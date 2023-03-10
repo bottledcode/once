@@ -22,4 +22,4 @@ jobs:
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
       - name: Destroy Preview Environment
         run: |
-          loft delete vcluster once-preview-${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
+          loft delete vcluster once-preview${{ github.event.pull_request.number }} --project swytch --delete-space --wait
