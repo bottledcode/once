@@ -10,6 +10,7 @@ vars:
   RETHINKDB_DB: swytch-once
   AUTH_HOST: auth.getswytch.com
   HOST: once.getswytch.com
+  POSTMARK_API_KEY: not-a-secret
 
 dependencies:
   swytch-auth:
@@ -17,7 +18,7 @@ dependencies:
     branch: main-v2
     git: https://github.com/bottledcode/swytch-auth.git
     vars:
-      POSTMARK_API_KEY: ${{ secrets.POSTMARK_SANDBOX_API_KEY }}
+      POSTMARK_API_KEY: ${POSTMARK_API_KEY}
       OP_MODE: preview
       HOSTS: '["${AUTH_HOST}"]'
 
