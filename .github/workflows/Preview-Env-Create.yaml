@@ -36,7 +36,7 @@ jobs:
       - name: Inject values
         run: |
           echo "${{ secrets.DEPLOYMENT_VALUES }}" > deployment.values.yaml
-          echo "host: ${{ github.event.pull_request.number }}.once.getswytch.com" >> deployment.values.yaml
+          echo "host: preview-${{ github.event.pull_request.number }}.once.getswytch.com" >> deployment.values.yaml
       - name: Build image
         run: |
           loft use cluster
@@ -56,4 +56,6 @@ jobs:
           number: ${{ github.event.pull_request.number }}
           header: release
           message: |
-            Preview environment deployed at: http://${{ github.event.pull_request.number }}.once.getswytch.com
+            Preview environment deployed at: [https://preview-${{ github.event.pull_request.number }}.once.getswytch.com](https://preview-${{ github.event.pull_request.number }}.once.getswytch.com)
+            
+            It may take a few minutes for DNS entries and certificates to propagate (you can add 65.108.6.254 to your hosts file).
