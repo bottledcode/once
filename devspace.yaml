@@ -5,7 +5,7 @@ dependencies:
   swytch-auth:
     namespace: swytch-auth
     branch: main
-    git: git@github.com:bottledcode/swytch-auth.git
+    git: https://github.com/bottledcode/swytch-auth.git
 
 # This is a list of `pipelines` that DevSpace can execute (you can define your own)
 pipelines:
