@@ -1,0 +1,53 @@
+name: Create Preview Environment
+on:
+  pull_request:
+    branches:
+      - main
+concurrency:
+  group: preview-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  deploy:
+    environment: Preview
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+      - uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@master
+        with:
+          install: true
+      - name: Install DevSpace
+        uses: loft-sh/setup-devspace@main
+      - name: Install Loft
+        uses: loft-sh/setup-loft@v2
+        with:
+          # version: v1.15.0
+          url: https://kube.bottled.codes
+          access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+      - name: Inject values
+        run: |
+          echo "${{ secrets.DEPLOYMENT_VALUES }}" > deployment.values.yaml
+          echo "host: ${{ github.event.pull_request.number }}.once.getswytch.com" >> deployment.values.yaml
+      - name: Build image
+        run: |
+          loft use cluster
+          # build the current sha from the current branch
+          devspace use namespace once
+          devspace build -t ${{ github.sha }} --no-warn
+      - name: Deploy Preview Environment
+        run: |
+          loft create vcluster once-preview-${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
+      - name: Deploy
+        run: |
+          devspace use namespace once
+          devspace deploy
+          devspace migrate

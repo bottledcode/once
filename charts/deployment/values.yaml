@@ -10,6 +10,7 @@ host: once.getswytch.com
 auth:
   signinUrl: https://auth.getswytch.com/login
   allowedRoles: user
+  authUrl: http://swytch-auth.auth.svc.cluster.local/api/auth
 
 secrets:
   stateSecret: this.is.secret
