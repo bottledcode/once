@@ -1,11 +1,26 @@
 version: v2beta1
 name: once
 
+vars:
+  STATE_SECRET: not-a-secret
+  IMAGE: 'registry.bottled.codes/swytch/once'
+  RETHINKDB_HOST: rethinkdb-main-rethinkdb-proxy.main.svc.cluster.local
+  RETHINKDB_USER: swytch-auth
+  RETHINKDB_PASSWORD: not-a-secret
+  RETHINKDB_DB: swytch-auth
+  AUTH_HOST: auth.getswytch.com
+  REPLICAS: 2
+  HOST: once.getswytch.com
+
 dependencies:
   swytch-auth:
     namespace: swytch-auth
     branch: main-v2
     git: https://github.com/bottledcode/swytch-auth.git
+    vars:
+      POSTMARK_API_KEY: ${{ secrets.POSTMARK_SANDBOX_API_KEY }}
+      OP_MODE: preview
+      HOSTS: '["${AUTH_HOST}"]'
 
 # This is a list of `pipelines` that DevSpace can execute (you can define your own)
 pipelines:
@@ -21,7 +36,8 @@ pipelines:
     run: |-
       loft wakeup space image-builder
       kubectl create namespace swytch-auth
-      run_dependencies --all
+      run_dependencies --all --pipeline deploy
+      run_dependencies --all --pipeline db-migrate
       ensure_pull_secrets --all
       build_images --all
       devspace reset pods
@@ -63,8 +79,19 @@ deployments:
         path: charts/deployment
       # Under `values` we can define the values for this Helm chart used during `helm install/upgrade`
       # You may also use `valuesFiles` to load values from files, e.g. valuesFiles: ["values.yaml"]
-      valuesFiles:
-        - deployment.values.yaml
+      values:
+        replicaCount: $REPLICAS
+        image: ${IMAGE}
+        host: ${HOST}
+        auth:
+          signinUrl: https://${AUTH_HOST}/login
+        secrets:
+          stateSecret: ${STATE_SECRET}
+        rethinkdb:
+          host: ${RETHINKDB_HOST}
+          db: ${RETHINKDB_DB}
+          user: ${RETHINKDB_USER}
+          password: ${RETHINKDB_PASSWORD}
       disableDependencyUpdate: false
 
 # This is a list of `dev` containers that are based on the containers created by your deployments
