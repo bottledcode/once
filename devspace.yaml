@@ -1,6 +1,12 @@
 version: v2beta1
 name: once
 
+dependencies:
+  swytch-auth:
+    namespace: swytch-auth
+    branch: main
+    git: git@github.com:bottledcode/swytch-auth.git
+
 # This is a list of `pipelines` that DevSpace can execute (you can define your own)
 pipelines:
   # This is the pipeline for the main command: `devspace dev` (or `devspace run-pipeline dev`)
