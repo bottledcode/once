@@ -34,7 +34,7 @@ pipelines:
   deploy:
     run: |-
       loft wakeup space image-builder
-      kubectl create namespace swytch-auth
+      kubectl create namespace swytch-auth || true
       run_dependencies --all --pipeline deploy
       ensure_pull_secrets --all
       build_images --all
