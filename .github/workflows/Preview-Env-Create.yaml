@@ -18,42 +18,51 @@ jobs:
         uses: actions/checkout@v3
         with:
           lfs: true
+
       - uses: azure/docker-login@v1
         with:
           login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
+
       - name: Set up Docker Buildx
         id: buildx
         uses: docker/setup-buildx-action@master
         with:
           install: true
+
       - name: Install DevSpace
         uses: loft-sh/setup-devspace@main
+
       - name: Install Loft
         uses: loft-sh/setup-loft@v2
         with:
           # version: v1.15.0
           url: https://kube.bottled.codes
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
-      - name: Inject values
-        run: |
-          echo "${{ secrets.DEPLOYMENT_VALUES }}" > deployment.values.yaml
-          echo "host: preview${{ github.event.pull_request.number }}.once.getswytch.com" >> deployment.values.yaml
+
       - name: Build image
         run: |
           loft use cluster
           # build the current sha from the current branch
           devspace use namespace once
           devspace build -t ${{ github.sha }} --no-warn
+
       - name: Create Preview Cluster
         run: |
           loft create vcluster once-preview${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
+
       - name: Deploy
         run: |
           devspace use namespace once --no-warn
-          devspace deploy --no-warn -t ${{ github.sha }} --skip-build --skip-push
+          devspace deploy --no-warn -t ${{ github.sha }} --skip-build --skip-push \
+            --var STATE_SECRET="${{ secrets.STATE_SECRET }}" \
+            --var RETHINKDB_PASSWORD="${{ secrets.RETHINKDB_PASSWORD }}" \
+            --var RETHINKDB_ADMIN_PASSWORD="${{ secrets.RETHINKDB_ADMIN_PASSWORD }}" \
+            --var AUTH_HOST="fake-auth.preview${{gihub.event.pull_request.number}}.getswytch.com" \
+            --var HOST="preview${{ github.event.pull_request.number }}.once.getswytch.com"
           RETHINKDB_ADMIN_PASSWORD=${{ secrets.RETHINKDB_ADMIN_PASSWORD }} devspace run-pipeline db-migrate
+
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           number: ${{ github.event.pull_request.number }}
