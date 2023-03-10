@@ -23,6 +23,7 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '24 12 * * 1'
+  merge_group:
 
 permissions:
   contents: read
