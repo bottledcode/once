@@ -19,6 +19,16 @@ pipelines:
       build_images --all
       devspace reset pods                        # 4. Reset all pods to force a restart
       create_deployments --all                          # 4. Deploy Helm charts and manifests specfied as "deployments"
+  build:
+    run: |-
+      loft wakeup space image-builder
+      build_images --all
+  db-migrate:
+    run: |-
+      echo "Migrating database: waiting for pod to be ready..."
+      wait_pod --image-selector=registry.bottled.codes/swytch/once
+      echo "Migrating database: running migrations..."
+      exec_container --image-selector=registry.bottled.codes/swytch/once php src/scripts/db.php $RETHINKDB_ADMIN_PASSWORD
 
 # This is a list of `images` that DevSpace can build for this project
 # We recommend to skip image building during development (devspace dev) as much as possible

@@ -1,0 +1,25 @@
+name: Destroy Preview Environment
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+jobs:
+  destroy:
+    environment: Preview
+    runs-on: self-hosted
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+      - name: Install Loft
+        uses: loft-sh/setup-loft@v2
+        with:
+          # version: v1.15.0
+          url: https://kube.bottled.codes
+          access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+      - name: Destroy Preview Environment
+        run: |
+          loft delete vcluster once-preview-${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
