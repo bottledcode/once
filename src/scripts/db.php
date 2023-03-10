@@ -25,7 +25,7 @@ try {
 			host: getenv('RDB_HOST') ?: 'localhost',
 			db: 'rethinkdb',
 			user: 'admin',
-			password: (getenv('RETHINKDB_ADMIN_PASSWORD') ?: $argv[0]) ?? throw new LogicException(
+			password: (getenv('RETHINKDB_ADMIN_PASSWORD') ?: $argv[1) ?? throw new LogicException(
 				'RETHINKDB_ADMIN_PASSWORD not set'
 			),
 		)
