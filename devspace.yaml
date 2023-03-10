@@ -13,7 +13,7 @@ vars:
   POSTMARK_API_KEY: not-a-secret
 
 dependencies:
-  swytch-auth:
+  auth:
     namespace: swytch-auth
     branch: main-v2
     git: https://github.com/bottledcode/swytch-auth.git
@@ -35,7 +35,7 @@ pipelines:
   deploy:
     run: |-
       loft wakeup space image-builder
-      kubectl create namespace swytch-auth || true
+      kubectl create namespace auth || true
       run_dependencies --all --pipeline deploy
       ensure_pull_secrets --all
       build_images --all
