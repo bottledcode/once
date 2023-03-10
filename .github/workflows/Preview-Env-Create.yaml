@@ -7,7 +7,7 @@ concurrency:
   group: preview-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 jobs:
-  deploy:
+  PreviewDeploy:
     environment: Preview
     runs-on: self-hosted
     steps:
@@ -43,7 +43,7 @@ jobs:
           # build the current sha from the current branch
           devspace use namespace once
           devspace build -t ${{ github.sha }} --no-warn
-      - name: Deploy Preview Environment
+      - name: Create Preview Cluster
         run: |
           loft create vcluster once-preview-${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
       - name: Deploy
