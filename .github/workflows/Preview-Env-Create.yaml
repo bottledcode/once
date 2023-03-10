@@ -58,7 +58,6 @@ jobs:
           devspace deploy --no-warn -t ${{ github.sha }} --skip-build --skip-push \
             --var STATE_SECRET="${{ secrets.STATE_SECRET }}" \
             --var RETHINKDB_PASSWORD="${{ secrets.RETHINKDB_PASSWORD }}" \
-            --var RETHINKDB_ADMIN_PASSWORD="${{ secrets.RETHINKDB_ADMIN_PASSWORD }}" \
             --var AUTH_HOST="fake-auth.preview${{github.event.pull_request.number}}.once.getswytch.com" \
             --var POSTMARK_API_KEY="${{ secrets.POSTMARK_SANDBOX_API_KEY }}" \
             --var HOST="preview${{ github.event.pull_request.number }}.once.getswytch.com"
