@@ -58,4 +58,4 @@ jobs:
           message: |
             Preview environment deployed at: [https://preview-${{ github.event.pull_request.number }}.once.getswytch.com](https://preview-${{ github.event.pull_request.number }}.once.getswytch.com)
             
-            It may take a few minutes for DNS entries and certificates to propagate (you can add 65.108.6.254 to your hosts file).
+            It may take a few minutes for DNS entries and certificates to propagate (you can add `65.108.6.254` to your hosts file).
