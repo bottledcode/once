@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+replicaCount: 2
 pullPolicy: Always
 image: registry.bottled.codes/swytch/once
 host: once.getswytch.com
