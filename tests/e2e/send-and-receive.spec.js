@@ -26,7 +26,7 @@ test('send-and-receive', async ({page}) => {
 	await page.locator('#message_link').click();
 	const messageUrl = await page.locator('#message_link').inputValue();
 	await expect(messageUrl).toContain('read');
-	await page.getByRole('link', {name: 'Logout'}).click();
+	await page.context().clearCookies();
 	await page.goto(messageUrl);
 	await page.isVisible('input[placeholder="Email Address"]');
 	await page.getByPlaceholder('Email Address').click();
