@@ -9,6 +9,8 @@ jobs:
   destroy:
     environment: Preview
     runs-on: self-hosted
+    timeout-minutes: 15
+    name: Destroy Preview Environment
     steps:
       - name: Checkout
         uses: actions/checkout@v3
