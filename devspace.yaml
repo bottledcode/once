@@ -8,7 +8,8 @@ vars:
   RETHINKDB_USER: swytch-once
   RETHINKDB_PASSWORD: not-a-secret
   RETHINKDB_DB: swytch-once
-  AUTH_HOST: auth.getswytch.com
+  AUTH_LOGIN: https://auth.getswytch.com/login
+  AUTH_URL: http://swytch-auth.auth.svc.cluster.local/api/auth
   HOST: once.getswytch.com
   POSTMARK_API_KEY: not-a-secret
 
@@ -83,7 +84,8 @@ deployments:
         image: ${IMAGE}
         host: ${HOST}
         auth:
-          signinUrl: https://${AUTH_HOST}/login
+          signinUrl: ${AUTH_LOGIN}
+          authUrl: ${AUTH_URL}
         secrets:
           stateSecret: ${STATE_SECRET}
         rethinkdb:
