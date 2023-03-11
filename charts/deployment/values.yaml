@@ -20,3 +20,5 @@ rethinkdb:
   db: once
   user: once
   password: secret
+
+probes: true

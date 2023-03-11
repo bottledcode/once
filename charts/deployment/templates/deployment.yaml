@@ -25,7 +25,7 @@ spec:
                 topologyKey: kubernetes.io/hostname
               weight: 100
       containers:
-        - readinessProbe:
+        - {{- if .Values.probes }}readinessProbe:
             httpGet:
               port: 80
               path: /api/healthz
@@ -43,6 +43,7 @@ spec:
             initialDelaySeconds: 2
             successThreshold: 1
             timeoutSeconds: 1
+            {{- end }}
           lifecycle:
             preStop:
               exec:

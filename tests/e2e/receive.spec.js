@@ -1,0 +1,37 @@
+import {test} from '@playwright/test';
+
+test('test', async ({page}) => {
+	await page.goto('https://preview12.once.getswytch.com/');
+	await page.getByText('Say it securely, once and for all').click();
+	await page.getByRole('link', {name: 'Receive'}).click();
+	await page.getByPlaceholder('Email Address').click();
+	await page.getByPlaceholder('Email Address').fill('receiver@example.com');
+	await page.getByLabel('Agree to terms of service').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.getByLabel('Remember me').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.getByRole('textbox').click();
+	await page.getByRole('link', {name: 'Logout'}).click();
+	await page.goto('https://preview12.once.getswytch.com/sendto/429c7fcb-0cb1-5643-806b-9b201a85cacb');
+	await page.goto('https://fake-auth.preview12.once.getswytch.com/login?rd=https://preview12.once.getswytch.com%2Fapp%2Fsend%2F429c7fcb-0cb1-5643-806b-9b201a85cacb');
+	await page.getByPlaceholder('Email Address').click();
+	await page.getByPlaceholder('Email Address').fill('sender@example.com');
+	await page.getByLabel('Agree to terms of service').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.getByLabel('Remember me').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.locator('#editor').getByRole('paragraph').click();
+	await page.locator('#editor div').first().fill('test message');
+	await page.getByText('Self-destruct').click();
+	await page.getByRole('button', {name: 'Send it'}).click();
+	await page.locator('#message_link').click();
+	await page.getByRole('link', {name: 'Logout'}).click();
+	await page.goto('https://preview12.once.getswytch.com/read/f134a2f7-a6c9-49bd-acba-f2c043736342');
+	await page.goto('https://fake-auth.preview12.once.getswytch.com/login?rd=https://preview12.once.getswytch.com%2Fapp%2Fread%2Ff134a2f7-a6c9-49bd-acba-f2c043736342');
+	await page.getByPlaceholder('Email Address').click();
+	await page.getByPlaceholder('Email Address').fill('receiver@example.com');
+	await page.getByLabel('Agree to terms of service').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.getByLabel('Remember me').check();
+	await page.getByRole('button', {name: 'Sign in'}).click();
+});

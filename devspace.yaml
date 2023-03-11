@@ -13,6 +13,7 @@ vars:
   HOST: once.getswytch.com
   POSTMARK_API_KEY: not-a-secret
   AUTH_HOST: auth.getswytch.com
+  PROBES: true
 
 dependencies:
   auth:
@@ -86,6 +87,7 @@ deployments:
       values:
         image: ${IMAGE}
         host: ${HOST}
+        probes: ${PROBES}
         auth:
           signinUrl: ${AUTH_LOGIN}
           authUrl: ${AUTH_URL}
@@ -105,12 +107,7 @@ dev:
     imageSelector: registry.bottled.codes/swytch/once
     # Replace the container image with this dev-optimized image (allows to skip image building during development)
     devImage: registry.bottled.codes/swytch/once
-    patches:
-      - path: readinessProbe
-        op: remove
-      - path: livenessProbe
-        op: remove
-      # Sync files between the local filesystem and the development container
+    # Sync files between the local filesystem and the development container
     sync:
       - path: ./
     # Open a terminal and use the following command to start it
