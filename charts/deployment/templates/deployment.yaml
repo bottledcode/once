@@ -34,6 +34,15 @@ spec:
             initialDelaySeconds: 2
             successThreshold: 1
             timeoutSeconds: 1
+          livenessProbe:
+            httpGet:
+              port: 80
+              path: /api/healthz
+            failureThreshold: 3
+            periodSeconds: 1
+            initialDelaySeconds: 2
+            successThreshold: 1
+            timeoutSeconds: 1
           name: swytch-once
           imagePullPolicy: {{ .Values.pullPolicy }}
           env:
