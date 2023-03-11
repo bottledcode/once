@@ -1,7 +1,7 @@
 import {expect, test} from '@playwright/test';
 
 test('send-and-receive', async ({page}) => {
-	await page.goto('https://preview12.once.getswytch.com/');
+	await page.goto(process.env.APP_URL);
 	await page.getByText('Say it securely, once and for all').click();
 	await page.getByRole('link', {name: 'Send', exact: true}).click();
 	await page.getByPlaceholder('Email Address').click();
