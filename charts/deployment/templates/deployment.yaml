@@ -86,3 +86,13 @@ spec:
             limits:
               memory: 1Gi
           image: {{.Values.image}}
+---
+kind: PodDisruptionBudget
+apiVersion: policy/v1
+metadata:
+  name: swytch-once
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: swytch-once
