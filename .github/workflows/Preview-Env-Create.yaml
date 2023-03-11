@@ -104,6 +104,10 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Configure Hosts
+        run: |
+          echo "65.108.6.254 preview${{ github.event.pull_request.number }}.once.getswytch.com fake-auth.preview${{ github.event.pull_request.number}}.once.getswytch.com" | sudo tee -a /etc/hosts
+
       - name: Run Playwright tests
         env:
           APP_URL: https://preview${{ github.event.pull_request.number }}.once.getswytch.com
