@@ -29,10 +29,12 @@ pipelines:
   # This is the pipeline for the main command: `devspace dev` (or `devspace run-pipeline dev`)
   dev:
     run: |-
-      run_dependencies --all       # 1. Deploy any projects this project needs (see "dependencies")
-      ensure_pull_secrets --all    # 2. Ensure pull secrets
-      create_deployments --all     # 3. Deploy Helm charts and manifests specfied as "deployments"
-      start_dev once                # 4. Start dev mode "app" (see "dev" section)
+      #run_dependencies --all
+      #loft use cluster
+      ensure_pull_secrets --all
+      create_deployments --all
+      #loft use vcluster
+      start_dev once
   # You can run this pipeline via `devspace deploy` (or `devspace run-pipeline deploy`)
   deploy:
     run: |-
@@ -103,7 +105,12 @@ dev:
     imageSelector: registry.bottled.codes/swytch/once
     # Replace the container image with this dev-optimized image (allows to skip image building during development)
     devImage: registry.bottled.codes/swytch/once
-    # Sync files between the local filesystem and the development container
+    patches:
+      - path: readinessProbe
+        op: remove
+      - path: livenessProbe
+        op: remove
+      # Sync files between the local filesystem and the development container
     sync:
       - path: ./
     # Open a terminal and use the following command to start it
