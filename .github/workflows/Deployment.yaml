@@ -49,5 +49,6 @@ jobs:
           devspace deploy --no-warn -t ${{ github.sha }} --skip-dependency auth \
             --var STATE_SECRET="${{ secrets.STATE_SECRET }}" \
             --var RETHINKDB_PASSWORD="${{ secrets.RETHINKDB_PASSWORD }}" \
+            --var RETHINKDB_USER='once' \
             --var AUTH_HOST="auth.getswytch.com" \
             --var HOST="once.getswytch.com"
