@@ -100,6 +100,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
+        env:
+          APP_URL: https://preview${{ github.event.pull_request.number }}.once.getswytch.com
         run: npx playwright test
 
       - uses: actions/upload-artifact@v3
