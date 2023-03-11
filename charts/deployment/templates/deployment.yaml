@@ -26,7 +26,6 @@ spec:
               weight: 100
       containers:
         - readinessProbe:
-            terminationGracePeriodSeconds: 20
             httpGet:
               port: 80
               path: /api/healthz
