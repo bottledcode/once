@@ -7,8 +7,13 @@ $secrets = array_map(fn($secret) => base64_decode($secret), $secrets['data']);
 $currentCluster = explode('_', `kubectl config current-context`)[1];
 $currentCluster = explode('-', $currentCluster)[1];
 
+$tag = `git rev-parse HEAD`;
+$config = yaml_parse_file(__DIR__.'/.devspace/cache.yaml');
+$config['images']['once']['tag'] = $tag;
+yaml_emit_file(__DIR__.'/.devspace/cache.yaml', $config);
+
 passthru(
-	"devspace dev --force-deploy --skip-build " .
+	"devspace dev --force-deploy --skip-build -t  $tag" .
 	"--var STATE_SECRET='{$secrets['state-secret']}' " .
 	"--var RETHINKDB_PASSWORD='{$secrets['rdb-password']}' " .
 	"--var AUTH_LOGIN='https://fake-auth.{$currentCluster}.once.getswytch.com/login' " .
