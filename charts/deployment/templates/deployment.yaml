@@ -25,7 +25,17 @@ spec:
                 topologyKey: kubernetes.io/hostname
               weight: 100
       containers:
-        - name: swytch-once
+        - readinessProbe:
+            terminationGracePeriodSeconds: 20
+            httpGet:
+              port: 80
+              path: /api/healthz
+            failureThreshold: 3
+            periodSeconds: 1
+            initialDelaySeconds: 2
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: swytch-once
           imagePullPolicy: {{ .Values.pullPolicy }}
           env:
             - name: SWYTCH_STATE_SECRET
