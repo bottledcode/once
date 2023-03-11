@@ -28,10 +28,12 @@ test('send-and-receive', async ({page}) => {
 	await expect(messageUrl).toContain('read');
 	await page.getByRole('link', {name: 'Logout'}).click();
 	await page.goto(messageUrl);
+	await page.isVisible('input[placeholder="Email Address"]');
 	await page.getByPlaceholder('Email Address').click();
 	await page.getByPlaceholder('Email Address').fill('receiver@example.com');
 	await page.getByLabel('Agree to terms of service').check();
 	await page.getByRole('button', {name: 'Sign in'}).click();
+	await page.getByLabel('Remember me').check();
 	await page.getByRole('button', {name: 'Sign in'}).click();
 	await page.getByPlaceholder('My best friend').click();
 	await page.getByPlaceholder('My best friend').fill('password');
