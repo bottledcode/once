@@ -12,6 +12,8 @@ concurrency:
 jobs:
   PreviewDeploy:
     environment: Preview
+    name: Deploy Preview
+    timeout-minutes: 15
     runs-on: self-hosted
     steps:
       - name: Checkout
