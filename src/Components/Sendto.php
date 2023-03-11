@@ -13,6 +13,7 @@ class Sendto
 {
 	use Htmx;
 	use RegularPHP;
+	use Urls;
 
 	public function __construct(
 		private readonly HeadTagFilter $htmlHead,
@@ -23,10 +24,10 @@ class Sendto
 	public function render(string $receiver): string
 	{
 		$this->htmlHead->setOpenGraph(
-			'https://once.getswytch.com/sendto/' . $receiver,
+			$this->getUrlForPath('/sendto/' . $receiver, false),
 			'Once — Read your secret message',
 			'A friend has sent you a secret message. Read it here.',
-			'https://once.getswytch.com/assets/preview.png'
+			$this->getUrlForPath('/assets/preview.png', false),
 		);
 		$this->htmlHead->setTitle('Once — Read your secret message');
 

@@ -9,6 +9,7 @@ use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 class Receive
 {
 	use RegularPHP;
+	use Urls;
 
 	public function render()
 	{
@@ -21,7 +22,7 @@ class Receive
 			<input
 				type="text"
 				readonly
-				value="https://once.getswytch.com/sendto/<?= strstr($_SERVER['HTTP_X_AUTH_REQUEST_USER'], ':', true) ?>"
+				value="<?= $this->getUrlForPath('/sendto/' .strstr($_SERVER['HTTP_X_AUTH_REQUEST_USER'], ':', true), true) ?>"
 				class="dark:text-gray-300 dark:bg-gray-900 rounded-md mt-3 w-full max-w-2xl"
 			>
 		</div>

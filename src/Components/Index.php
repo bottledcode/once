@@ -11,6 +11,7 @@ use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 class Index
 {
 	use RegularPHP;
+	use Urls;
 
 	public function __construct(private readonly LanguageAcceptor $language, private readonly HeadTagFilter $headers)
 	{
@@ -58,10 +59,10 @@ class Index
 		$this->headers->setTitle('Once — Secret Messages');
 		$this->headers->addCss('app', '/assets/compiled.css');
 		$this->headers->setOpenGraph(
-			'https://once.getswytch.com',
+			$this->getUrlForPath('', false),
 			__('Once — Securely share secrets'),
 			__('Say it securely, Once and for all.'),
-			'https://once.getswytch.com/assets/preview.png'
+			$this->getUrlForPath('/assets/preview.png', false),
 		);
 		$this->headers->setTwitterCard('summary_large_image', '@withinboredom', '@withinboredom');
 
