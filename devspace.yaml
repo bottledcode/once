@@ -12,6 +12,7 @@ vars:
   AUTH_URL: http://swytch-auth.auth.svc.cluster.local/api/auth
   HOST: once.getswytch.com
   POSTMARK_API_KEY: not-a-secret
+  AUTH_HOST: auth.getswytch.com
 
 dependencies:
   auth:
