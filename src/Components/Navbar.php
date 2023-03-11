@@ -41,7 +41,7 @@ class Navbar
 	{
 		$logoutUrl = match($_SERVER['HTTP_HOST']) {
 			'once.getswytch.com' => 'https://auth.getswytch.com/api/logout?rd=',
-			default => 'fake-auth.'.$_SERVER['HTTP_HOST'].'/api/logout?rd=',
+			default => 'https://fake-auth.'.$_SERVER['HTTP_HOST'].'/api/logout?rd=',
 		};
 
 		$this->begin();
