@@ -30,7 +30,7 @@ spec:
               port: 80
               path: /api/healthz
             failureThreshold: 3
-            periodSeconds: 1
+            periodSeconds: 10
             initialDelaySeconds: 2
             successThreshold: 1
             timeoutSeconds: 1
@@ -39,7 +39,7 @@ spec:
               port: 80
               path: /api/healthz
             failureThreshold: 3
-            periodSeconds: 1
+            periodSeconds: 10
             initialDelaySeconds: 2
             successThreshold: 1
             timeoutSeconds: 1
