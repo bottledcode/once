@@ -13,6 +13,7 @@ use Withinboredom\Once\Repositories\MessageRepository;
 class ReadRedirector
 {
 	use Htmx;
+	use Urls;
 	use RegularPHP;
 
 	public function __construct(
@@ -29,10 +30,10 @@ class ReadRedirector
 		}
 
 		$this->htmlHead->setOpenGraph(
-			'https://once.getswytch.com/read/' . $messageId,
+			$this->getUrlForPath('/read/' . $messageId, false),
 			'Once — Read your secret message',
 			'A friend has sent you a secret message. Read it here.',
-			'https://once.getswytch.com/assets/preview.png'
+			$this->getUrlForPath('/assets/preview.png', false)
 		);
 		$this->htmlHead->setTitle('Once — Read your secret message');
 

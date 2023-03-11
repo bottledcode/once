@@ -10,6 +10,7 @@ use Bottledcode\SwytchFramework\Template\Traits\RegularPHP;
 class About
 {
 	use RegularPHP;
+	use Urls;
 
 	public function __construct(private readonly HeadTagFilter $headers)
 	{
@@ -19,10 +20,10 @@ class About
 	{
 		$this->headers->setTitle('Once — About');
 		$this->headers->setOpenGraph(
-			'https://once.getswytch.com/about',
+			$this->getUrlForPath('/about', false),
 			'About Once',
 			'Say it securely, Once and for all',
-			'https://once.getswytch.com/assets/preview.png'
+			$this->getUrlForPath('/assets/preview.png', false)
 		);
 
 		$this->begin();

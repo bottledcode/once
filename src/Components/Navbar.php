@@ -16,6 +16,7 @@ class Navbar
 {
 	use RegularPHP;
 	use Htmx;
+	use Urls;
 
 	public function __construct(
 		private readonly Compiler $compiler,
@@ -63,7 +64,7 @@ class Navbar
 								<?php
 								if ($this->authService->isAuthenticated()): ?>
 									<NAVBARPAGESELECTOR
-										href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+										href="https://auth.getswytch.com/api/logout?rd={<?= $this->getUrlForPath('', false) ?>}"
 										label="<?= __('Logout') ?>"
 									></NAVBARPAGESELECTOR>
 								<?php
@@ -115,7 +116,7 @@ class Navbar
 						<?php
 						if ($this->authService->isAuthenticated()): ?>
 							<NAVBARPAGESELECTOR
-								href="https://auth.getswytch.com/api/logout?rd={https://once.getswytch.com}"
+								href="https://auth.getswytch.com/api/logout?rd={<?= $this->getUrlForPath('', false) ?>}"
 								label="<?= __('Logout') ?>"
 								mobile
 							></NAVBARPAGESELECTOR>

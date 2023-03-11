@@ -21,6 +21,7 @@ readonly class Send
 {
 	use RegularPHP;
 	use Htmx;
+	use Urls;
 
 	public function __construct(
 		private Compiler $compiler,
@@ -62,7 +63,7 @@ readonly class Send
 						readonly
 						id="message_link"
 						class="rounded-md w-full text-sm dark:bg-gray-900 dark:text-gray-400"
-						value="https://once.getswytch.com/read/{<?= $savedMessage->id ?>}"
+						value="<?= $this->getUrlForPath("/read/{{$savedMessage->id}}") ?>"
 					>
 					<div
 						class="absolute ease-in-out transition-opacity duration-700 opacity-0 inset-y-0 right-0 flex items-center rounded-md bg-red-600 h-full text-gray-300 text-sm"
