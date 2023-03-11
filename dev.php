@@ -8,11 +8,13 @@ $currentCluster = explode('_', `kubectl config current-context`)[1];
 $currentCluster = explode('-', $currentCluster)[1];
 
 passthru(
-	"devspace dev --var STATE_SECRET='{$secrets['state-secret']}' " .
+	"devspace dev --force-deploy --skip-build " .
+	"--var STATE_SECRET='{$secrets['state-secret']}' " .
 	"--var RETHINKDB_PASSWORD='{$secrets['rdb-password']}' " .
 	"--var AUTH_LOGIN='https://fake-auth.{$currentCluster}.once.getswytch.com/login' " .
 	"--var AUTH_URL='https://fake-auth.{$currentCluster}.once.getswytch.com/api/auth' " .
 	"--var HOST='{$currentCluster}.once.getswytch.com' " .
-	"--var AUTH_HOST='fake-auth.{$currentCluster}.once.getswytch.com' "
+	"--var AUTH_HOST='fake-auth.{$currentCluster}.once.getswytch.com' " .
+	"--var PROBES=false"
 );
 passthru('devspace reset pods');
