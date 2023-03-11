@@ -39,6 +39,11 @@ class Navbar
 
 	public function render(bool $open): string
 	{
+		$logoutUrl = match($_SERVER['HTTP_HOST']) {
+			'once.getswytch.com' => 'https://auth.getswytch.com/api/logout?rd=',
+			default => 'fake-auth.'.$_SERVER['HTTP_HOST'].'/api/logout?rd=',
+		};
+
 		$this->begin();
 		?>
 		<nav class="bg-gray-800 dark:bg-gray-900 dark:text-gray-800">
@@ -64,7 +69,7 @@ class Navbar
 								<?php
 								if ($this->authService->isAuthenticated()): ?>
 									<NAVBARPAGESELECTOR
-										href="https://auth.getswytch.com/api/logout?rd={<?= $this->getUrlForPath('', false) ?>}"
+										href="{<?= $logoutUrl . $this->getUrlForPath('', false) ?>}"
 										label="<?= __('Logout') ?>"
 									></NAVBARPAGESELECTOR>
 								<?php
@@ -116,7 +121,7 @@ class Navbar
 						<?php
 						if ($this->authService->isAuthenticated()): ?>
 							<NAVBARPAGESELECTOR
-								href="https://auth.getswytch.com/api/logout?rd={<?= $this->getUrlForPath('', false) ?>}"
+								href="{<?= $logoutUrl . $this->getUrlForPath('', false) ?>}"
 								label="<?= __('Logout') ?>"
 								mobile
 							></NAVBARPAGESELECTOR>
