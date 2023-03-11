@@ -76,6 +76,9 @@ jobs:
             
             It may take a few minutes for DNS entries and certificates to propagate (you can add `65.108.6.254` to your hosts file).
   e2e:
+    defaults:
+      run:
+        working-directory: tests/e2e
     needs:
       - PreviewDeploy
     name: Run E2E Tests
