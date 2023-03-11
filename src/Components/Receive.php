@@ -20,6 +20,7 @@ class Receive
 				Give this link to the person you want to receive a message from:
 			</div>
 			<input
+				id="sendto"
 				type="text"
 				readonly
 				value="<?= $this->getUrlForPath('/sendto/' .strstr($_SERVER['HTTP_X_AUTH_REQUEST_USER'], ':', true), true) ?>"

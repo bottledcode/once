@@ -81,7 +81,7 @@ class Index
 
 			<Route path="/" render="<Homepage />"></Route>
 			<Route path="/app/send" render="<Send />"></Route>
-			<route path="/app/send/:receiver" render="<Send receiver=':receiver' />"></route>
+			<route path="/app/send/:receiver" render="<Send receiver='{{:receiver}}' />"></route>
 			<Route path="/app/receive" render="<Receive />"></Route>
 			<Route path="/about" render="<About />"></Route>
 			<Route path="/app/read/:id" render="<Reader messageId='{{:id}}' />"></Route>
