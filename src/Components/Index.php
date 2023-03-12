@@ -79,14 +79,30 @@ class Index
 		<div class="min-h-full dark:bg-slate-800">
 			<Navbar open=""></Navbar>
 
-			<Route path="/" render="<Homepage />"></Route>
-			<Route path="/app/send" render="<Send />"></Route>
-			<route path="/app/send/:receiver" render="<Send receiver='{{:receiver}}' />"></route>
-			<Route path="/app/receive" render="<Receive />"></Route>
-			<Route path="/about" render="<About />"></Route>
-			<Route path="/app/read/:id" render="<Reader messageId='{{:id}}' />"></Route>
-			<Route path="/read/:id" render="<ReadRedirector messageId='{{:id}}' />"></Route>
-			<route path="/sendto/:receiver" render="<sendto receiver='{{:receiver}}' />"></route>
+			<Route path="/" render="<Homepage />">
+				<Homepage></Homepage>
+			</Route>
+			<Route path="/app/send" render="<Send />">
+				<Send></Send>
+			</Route>
+			<route path="/app/send/:receiver" render="<Send receiver='{{:receiver}}' />">
+				<Send receiver="{{:receiver}}"></Send>
+			</route>
+			<Route path="/app/receive" render="<Receive />">
+				<Receive></Receive>
+			</Route>
+			<Route path="/about" render="<About />">
+				<About></About>
+			</Route>
+			<Route path="/app/read/:id" render="<Reader messageId='{{:id}}' />">
+				<Reader messageId="{{:id}}"></Reader>
+			</Route>
+			<Route path="/read/:id" render="<ReadRedirector messageId='{{:id}}' />">
+				<ReadRedirector messageId="{{:id}}"></ReadRedirector>
+			</Route>
+			<route path="/sendto/:receiver" render="<sendto receiver='{{:receiver}}' />">
+				<SendTo receiver="{{:receiver}}"></SendTo>
+			</route>
 			<DefaultRoute render="<not-found />"></DefaultRoute>
 		</div>
 		<div id="modal"></div>
