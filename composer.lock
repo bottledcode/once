@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/swytch-framework.git",
-                "reference": "f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab"
+                "reference": "48a6ce8aa2cde0a7b2b35e10aad8dd4197f8dde7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab",
-                "reference": "f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab",
+                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/48a6ce8aa2cde0a7b2b35e10aad8dd4197f8dde7",
+                "reference": "48a6ce8aa2cde0a7b2b35e10aad8dd4197f8dde7",
                 "shasum": ""
             },
             "require": {
@@ -78,7 +78,7 @@
                 "issues": "https://github.com/bottledcode/swytch-framework/issues",
                 "source": "https://github.com/bottledcode/swytch-framework/tree/main"
             },
-            "time": "2023-03-13T02:55:56+00:00"
+            "time": "2023-03-13T20:28:43+00:00"
         },
         {
             "name": "gettext/gettext",
