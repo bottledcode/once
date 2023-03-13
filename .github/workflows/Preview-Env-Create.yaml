@@ -94,8 +94,8 @@ jobs:
       fail-fast: false
       matrix:
         project: [ chromium, firefox, webkit, 'Mobile Chrome', 'Mobile Safari', 'Microsoft Edge', 'Google Chrome' ]
-        shardIndex: [ 1,2,3 ]
-        shardTotal: [ 3 ]
+        shardIndex: [ 1,2 ]
+        shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v3
 
@@ -109,7 +109,7 @@ jobs:
       - name: Run Playwright tests
         env:
           APP_URL: https://preview${{ github.event.pull_request.number }}.once.getswytch.com
-        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: npx playwright test --project="${{ matrix.project }}" --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - uses: actions/upload-artifact@v3
         if: always()
