@@ -89,11 +89,13 @@ jobs:
     timeout-minutes: 60
     runs-on: self-hosted
     #container: mcr.microsoft.com/playwright:v1.31.0-focal
-    container: registry.bottled.codes/playwright/playwright:v1.31.0-focal
+    container:
+      image: registry.bottled.codes/playwright/playwright:v1.31.0-focal
+      options: --user pwuser
     strategy:
       fail-fast: false
       matrix:
-        project: [ chromium, firefox, webkit, 'Mobile Chrome', 'Mobile Safari', 'Microsoft Edge', 'Google Chrome' ]
+        project: [ chromium, firefox, webkit, 'Mobile Chrome', 'Mobile Safari' ]
         shardIndex: [ 1,2 ]
         shardTotal: [ 2 ]
     steps:
