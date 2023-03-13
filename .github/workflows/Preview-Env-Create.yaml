@@ -88,7 +88,8 @@ jobs:
     name: Run E2E Tests
     timeout-minutes: 60
     runs-on: self-hosted
-    container: mcr.microsoft.com/playwright:v1.31.0-focal
+    #container: mcr.microsoft.com/playwright:v1.31.0-focal
+    container: registry.bottled.codes/playwright/playwright:v1.31.0-focal
     strategy:
       fail-fast: false
       matrix:
