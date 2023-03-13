@@ -1,9 +1,16 @@
 import {expect, test} from '@playwright/test';
 
+
 test('test', async ({page}) => {
+	const clickMenu = async (link) => {
+		if (await page.getByRole('button', {name: 'Open main menu open'}).isVisible()) {
+			await page.getByRole('button', {name: 'Open main menu open'}).click();
+		}
+		await page.getByRole('link', {name: link}).click();
+	}
 	await page.goto(process.env.APP_URL);
 	await page.getByText('Say it securely, once and for all').click();
-	await page.getByRole('link', {name: 'Receive'}).click();
+	await clickMenu('Receive');
 	await page.getByPlaceholder('Email Address').click();
 	await page.getByPlaceholder('Email Address').fill('receiver@example.com');
 	await page.getByLabel('Agree to terms of service').check();
@@ -12,7 +19,7 @@ test('test', async ({page}) => {
 	await page.getByRole('button', {name: 'Sign in'}).click();
 	await page.locator('#sendto').click();
 	const sendUrl = await page.locator('#sendto').inputValue();
-	await page.getByRole('link', {name: 'Logout'}).click();
+	await clickMenu('Logout');
 	await page.goto(sendUrl);
 	await page.getByPlaceholder('Email Address').click();
 	await page.getByPlaceholder('Email Address').fill('sender@example.com');
@@ -26,7 +33,7 @@ test('test', async ({page}) => {
 	await page.getByRole('button', {name: 'Send it'}).click();
 	await page.locator('#message_link').click();
 	const messageUrl = await page.locator('#message_link').inputValue();
-	await page.getByRole('link', {name: 'Logout'}).click();
+	await clickMenu('Logout');
 	await page.goto(messageUrl);
 	await page.getByPlaceholder('Email Address').click();
 	await page.getByPlaceholder('Email Address').fill('receiver@example.com');

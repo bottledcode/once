@@ -1,9 +1,15 @@
 import {expect, test} from '@playwright/test';
 
 test('send-and-receive', async ({page, browser}) => {
+	const clickMenu = async (link, exact = false) => {
+		if (await page.getByRole('button', {name: 'Open main menu open'}).isVisible()) {
+			await page.getByRole('button', {name: 'Open main menu open'}).click();
+		}
+		await page.getByRole('link', {name: link, exact}).click();
+	}
 	await page.goto(process.env.APP_URL);
 	await page.getByText('Say it securely, once and for all').click();
-	await page.getByRole('link', {name: 'Send', exact: true}).click();
+	await clickMenu('Send', true);
 	await page.getByPlaceholder('Email Address').click();
 	await page.getByPlaceholder('Email Address').fill('sender@example.com');
 	await page.getByLabel('Agree to terms of service').check();
@@ -39,5 +45,5 @@ test('send-and-receive', async ({page, browser}) => {
 	await page.getByPlaceholder('My best friend').fill('password');
 	await page.getByRole('button', {name: 'Unlock'}).click();
 	await page.getByText('test message').click();
-	await page.getByRole('link', {name: 'Logout'}).click();
+	await clickMenu('Logout');
 });
