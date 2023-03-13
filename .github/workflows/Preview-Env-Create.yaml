@@ -43,6 +43,10 @@ jobs:
           url: https://kube.bottled.codes
           access-key: ${{ secrets.LOFT_ACCESS_KEY }}
 
+      - name: Create Preview Cluster
+        run: |
+          loft create vcluster once-preview${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster --skip-wait
+
       - name: Build image
         run: |
           loft use cluster
@@ -50,7 +54,7 @@ jobs:
           devspace use namespace once
           devspace build -t ${{ github.sha }} --no-warn
 
-      - name: Create Preview Cluster
+      - name: Wait for Preview Cluster
         run: |
           loft create vcluster once-preview${{ github.event.pull_request.number }} --project swytch --use --template preview-cluster
 
