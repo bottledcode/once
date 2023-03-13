@@ -88,6 +88,13 @@ jobs:
     name: Run E2E Tests
     timeout-minutes: 60
     runs-on: self-hosted
+    container: mcr.microsoft.com/playwright:v1.31.0-focal
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [ chromium, firefox, webkit ]
+        shardIndex: [ 1,2,3 ]
+        shardTotal: [ 3 ]
     steps:
       - uses: actions/checkout@v3
         with:
@@ -100,9 +107,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Configure Hosts
         run: |
           echo "65.108.6.254 preview${{ github.event.pull_request.number }}.once.getswytch.com fake-auth.preview${{ github.event.pull_request.number}}.once.getswytch.com" | sudo tee -a /etc/hosts
@@ -110,7 +114,7 @@ jobs:
       - name: Run Playwright tests
         env:
           APP_URL: https://preview${{ github.event.pull_request.number }}.once.getswytch.com
-        run: npx playwright test
+        run: npx playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - uses: actions/upload-artifact@v3
         if: always()
