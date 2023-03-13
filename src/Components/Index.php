@@ -79,31 +79,33 @@ class Index
 		<div class="min-h-full dark:bg-slate-800">
 			<Navbar open=""></Navbar>
 
-			<Route path="/" render="<Homepage />">
+			<Route path="/">
 				<Homepage></Homepage>
 			</Route>
-			<Route path="/app/send" render="<Send />">
+			<Route path="/app/send">
 				<Send></Send>
 			</Route>
-			<route path="/app/send/:receiver" render="<Send receiver='{{:receiver}}' />">
+			<route path="/app/send/:receiver">
 				<Send receiver="{{:receiver}}"></Send>
 			</route>
-			<Route path="/app/receive" render="<Receive />">
+			<Route path="/app/receive">
 				<Receive></Receive>
 			</Route>
-			<Route path="/about" render="<About />">
+			<Route path="/about">
 				<About></About>
 			</Route>
-			<Route path="/app/read/:id" render="<Reader messageId='{{:id}}' />">
+			<Route path="/app/read/:id">
 				<Reader messageId="{{:id}}"></Reader>
 			</Route>
-			<Route path="/read/:id" render="<ReadRedirector messageId='{{:id}}' />">
+			<Route path="/read/:id">
 				<ReadRedirector messageId="{{:id}}"></ReadRedirector>
 			</Route>
-			<route path="/sendto/:receiver" render="<sendto receiver='{{:receiver}}' />">
+			<route path="/sendto/:receiver">
 				<SendTo receiver="{{:receiver}}"></SendTo>
 			</route>
-			<DefaultRoute render="<not-found />"></DefaultRoute>
+			<DefaultRoute>
+				<NotFound></NotFound>
+			</DefaultRoute>
 		</div>
 		<div id="modal"></div>
 		<app:footer></app:footer>

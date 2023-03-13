@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cc8f3fe5b5829bb166436c0044416ff",
+    "content-hash": "b3c0d64c7bbec042523ca6d3936e5e8b",
     "packages": [
         {
             "name": "bottledcode/swytch-framework",
-            "version": "dev-router-upgrades",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/swytch-framework.git",
-                "reference": "7882f695b6b641439e2d5a76c5402f36ab0bb10a"
+                "reference": "f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/7882f695b6b641439e2d5a76c5402f36ab0bb10a",
-                "reference": "7882f695b6b641439e2d5a76c5402f36ab0bb10a",
+                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab",
+                "reference": "f1c5ecc03dd8f6e69f2b4f81fe49faf422e23dab",
                 "shasum": ""
             },
             "require": {
@@ -56,6 +56,7 @@
                 "php-di/php-di": "For dependency injection",
                 "symfony/serializer": "For state validation"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -75,9 +76,9 @@
             "description": "A PHP framework for building web applications",
             "support": {
                 "issues": "https://github.com/bottledcode/swytch-framework/issues",
-                "source": "https://github.com/bottledcode/swytch-framework/tree/router-upgrades"
+                "source": "https://github.com/bottledcode/swytch-framework/tree/main"
             },
-            "time": "2023-03-12T22:13:17+00:00"
+            "time": "2023-03-13T02:55:56+00:00"
         },
         {
             "name": "gettext/gettext",
