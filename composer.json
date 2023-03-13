@@ -34,7 +34,7 @@
 		}
 	],
 	"require": {
-		"bottledcode/swytch-framework": "dev-router-upgrades",
+		"bottledcode/swytch-framework": "dev-main",
 		"ext-mbstring": "*",
 		"ext-sodium": "*",
 		"mbagnall/php-rql": "dev-master",
