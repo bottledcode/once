@@ -4,8 +4,78 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b9bbd36cb4e295a014b73b117b4c0b4",
+    "content-hash": "93c8db006b79c9ab48d0a21bfebeb5a1",
     "packages": [
+        {
+            "name": "bottledcode/php-rql",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bottledcode/php-rql.git",
+                "reference": "7a09d84b1a78dff83631661825711b7aabda4754"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bottledcode/php-rql/zipball/7a09d84b1a78dff83631661825711b7aabda4754",
+                "reference": "7a09d84b1a78dff83631661825711b7aabda4754",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-openssl": "*",
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~9.5",
+                "squizlabs/php_codesniffer": "~3.7"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "rdb/rdb.php"
+                ],
+                "psr-4": {
+                    "r\\": "rdb/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Mewes",
+                    "email": "danielmewes@onlinehome.de",
+                    "homepage": "http://dmewes.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael Bagnall",
+                    "email": "michael@bagnall.io",
+                    "homepage": "http://bagnall.io",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Rob Landers",
+                    "email": "landers.robert@gmail.com",
+                    "homepage": "https://withinboredom.info",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "A PHP client driver for the RethinkDB query language (ReQL)",
+            "homepage": "http://danielmewes.github.io/php-rql/",
+            "keywords": [
+                "database",
+                "driver",
+                "reql",
+                "rethinkdb"
+            ],
+            "support": {
+                "source": "https://github.com/bottledcode/php-rql/tree/master"
+            },
+            "time": "2023-05-28T06:46:50+00:00"
+        },
         {
             "name": "bottledcode/swytch-framework",
             "version": "v0.3.3",
@@ -554,81 +624,6 @@
                 "source": "https://github.com/Masterminds/html5-php/tree/2.8.0"
             },
             "time": "2023-04-26T07:27:39+00:00"
-        },
-        {
-            "name": "mbagnall/php-rql",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bottledcode/php-rql.git",
-                "reference": "c057153aec31e016ce2d11cf1a5f5022102ef306"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/php-rql/zipball/c057153aec31e016ce2d11cf1a5f5022102ef306",
-                "reference": "c057153aec31e016ce2d11cf1a5f5022102ef306",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-openssl": "*",
-                "php": ">=8.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~9.5",
-                "squizlabs/php_codesniffer": "~3.7"
-            },
-            "default-branch": true,
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "rdb/rdb.php"
-                ],
-                "psr-4": {
-                    "r\\": "rdb/",
-                    "r\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "tests/phpunit.sh"
-                ]
-            },
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Mewes",
-                    "email": "danielmewes@onlinehome.de",
-                    "homepage": "http://dmewes.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Michael Bagnall",
-                    "email": "michael@bagnall.io",
-                    "homepage": "http://bagnall.io",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Rob Landers",
-                    "email": "landers.robert@gmail.com",
-                    "homepage": "https://withinboredom.info",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "A PHP client driver for the RethinkDB query language (ReQL)",
-            "homepage": "http://danielmewes.github.io/php-rql/",
-            "keywords": [
-                "database",
-                "driver",
-                "reql",
-                "rethinkdb"
-            ],
-            "support": {
-                "source": "https://github.com/bottledcode/php-rql/tree/master"
-            },
-            "time": "2023-05-26T22:29:35+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1395,16 +1390,16 @@
         },
         {
             "name": "symfony/property-access",
-            "version": "v6.2.8",
+            "version": "v6.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-access.git",
-                "reference": "2ad1e0a07b8cab3e09905659d14f3b248e916374"
+                "reference": "77442a960c3bc2cacc3d1cd300908a31a2eb30ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-access/zipball/2ad1e0a07b8cab3e09905659d14f3b248e916374",
-                "reference": "2ad1e0a07b8cab3e09905659d14f3b248e916374",
+                "url": "https://api.github.com/repos/symfony/property-access/zipball/77442a960c3bc2cacc3d1cd300908a31a2eb30ad",
+                "reference": "77442a960c3bc2cacc3d1cd300908a31a2eb30ad",
                 "shasum": ""
             },
             "require": {
@@ -1455,7 +1450,7 @@
                 "reflection"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-access/tree/v6.2.8"
+                "source": "https://github.com/symfony/property-access/tree/v6.2.11"
             },
             "funding": [
                 {
@@ -1471,20 +1466,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-14T15:00:05+00:00"
+            "time": "2023-05-09T22:46:35+00:00"
         },
         {
             "name": "symfony/property-info",
-            "version": "v6.2.10",
+            "version": "v6.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-info.git",
-                "reference": "617177c24e1a92e011851948ba973758429a68b2"
+                "reference": "ee0a0de5a6866c15af8495b2534d650b388bdeca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-info/zipball/617177c24e1a92e011851948ba973758429a68b2",
-                "reference": "617177c24e1a92e011851948ba973758429a68b2",
+                "url": "https://api.github.com/repos/symfony/property-info/zipball/ee0a0de5a6866c15af8495b2534d650b388bdeca",
+                "reference": "ee0a0de5a6866c15af8495b2534d650b388bdeca",
                 "shasum": ""
             },
             "require": {
@@ -1544,7 +1539,7 @@
                 "validator"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-info/tree/v6.2.10"
+                "source": "https://github.com/symfony/property-info/tree/v6.2.11"
             },
             "funding": [
                 {
@@ -1560,20 +1555,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-18T13:46:08+00:00"
+            "time": "2023-05-19T07:42:48+00:00"
         },
         {
             "name": "symfony/serializer",
-            "version": "v6.2.10",
+            "version": "v6.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d"
+                "reference": "7777df2b00dd2f3ee332b4b000c4b21743df64b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d",
-                "reference": "0732edf0ad28dd3faacde4f1200ab9d7a4d5f40d",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/7777df2b00dd2f3ee332b4b000c4b21743df64b7",
+                "reference": "7777df2b00dd2f3ee332b4b000c4b21743df64b7",
                 "shasum": ""
             },
             "require": {
@@ -1645,7 +1640,7 @@
             "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/serializer/tree/v6.2.10"
+                "source": "https://github.com/symfony/serializer/tree/v6.2.11"
             },
             "funding": [
                 {
@@ -1661,7 +1656,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-18T13:57:49+00:00"
+            "time": "2023-05-19T07:59:25+00:00"
         },
         {
             "name": "symfony/string",
@@ -4605,16 +4600,16 @@
         },
         {
             "name": "symfony/console",
-            "version": "v6.2.10",
+            "version": "v6.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "12288d9f4500f84a4d02254d4aa968b15488476f"
+                "reference": "5aa03db8ef0a5457c316ec580e69562d97734c77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/12288d9f4500f84a4d02254d4aa968b15488476f",
-                "reference": "12288d9f4500f84a4d02254d4aa968b15488476f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/5aa03db8ef0a5457c316ec580e69562d97734c77",
+                "reference": "5aa03db8ef0a5457c316ec580e69562d97734c77",
                 "shasum": ""
             },
             "require": {
@@ -4681,7 +4676,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v6.2.10"
+                "source": "https://github.com/symfony/console/tree/v6.2.11"
             },
             "funding": [
                 {
@@ -4697,7 +4692,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-04-28T13:37:43+00:00"
+            "time": "2023-05-26T08:16:21+00:00"
         },
         {
             "name": "symfony/service-contracts",
@@ -4838,7 +4833,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "mbagnall/php-rql": 20,
+        "bottledcode/php-rql": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,

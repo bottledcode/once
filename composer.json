@@ -26,18 +26,11 @@
 		"symfony/polyfill-mbstring": "*",
 		"symfony/polyfill-uuid": "*"
 	},
-	"repositories": [
-		{
-			"type": "vcs",
-			"branch": "master",
-			"url": "git@github.com:bottledcode/php-rql.git"
-		}
-	],
 	"require": {
 		"bottledcode/swytch-framework": "^0.3",
 		"ext-mbstring": "*",
 		"ext-sodium": "*",
-		"mbagnall/php-rql": "dev-master",
+		"bottledcode/php-rql": "dev-master",
 		"monolog/monolog": "^3.3",
 		"php": ">=8.2"
 	},
