@@ -40,6 +40,8 @@ module.exports = defineConfig({
 
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
+		/* Ignore certificate errors when navigating to HTTPS sites. */
+		ignoreHTTPSErrors: true,
 	},
 
 	/* Configure projects for major browsers */
