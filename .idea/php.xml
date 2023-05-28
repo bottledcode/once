@@ -16,7 +16,6 @@
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-escaper" />
-      <path value="$PROJECT_DIR$/vendor/mbagnall/php-rql" />
       <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/bottledcode/swytch-framework" />
@@ -77,6 +76,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-server-handler" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-httphandlerrunner" />
       <path value="$PROJECT_DIR$/vendor/withinboredom/response-code" />
+      <path value="$PROJECT_DIR$/vendor/bottledcode/php-rql" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2">
