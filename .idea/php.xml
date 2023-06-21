@@ -93,7 +93,6 @@
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/amphp/pipeline" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/amphp/serialization" />
       <path value="$PROJECT_DIR$/vendor/amphp/process" />
       <path value="$PROJECT_DIR$/vendor/crell/serde" />
