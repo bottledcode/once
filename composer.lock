@@ -1027,12 +1027,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/durable-php.git",
-                "reference": "837123e1a2bbe00bfdd794595e7321527223a61d"
+                "reference": "0fd534b244b1aeab43c6a58cae2ba276a3ab6b23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/durable-php/zipball/837123e1a2bbe00bfdd794595e7321527223a61d",
-                "reference": "837123e1a2bbe00bfdd794595e7321527223a61d",
+                "url": "https://api.github.com/repos/bottledcode/durable-php/zipball/0fd534b244b1aeab43c6a58cae2ba276a3ab6b23",
+                "reference": "0fd534b244b1aeab43c6a58cae2ba276a3ab6b23",
                 "shasum": ""
             },
             "require": {
@@ -1041,9 +1041,6 @@
                 "amphp/parallel": "^v2",
                 "bottledcode/php-rql": "dev-master",
                 "crell/serde": "^0.6.0",
-                "ext-apcu": "*",
-                "ext-ev": "*",
-                "ext-posix": "*",
                 "nesbot/carbon": "^2.66",
                 "php": ">=8.2",
                 "ramsey/uuid": "^4.7.4",
@@ -1078,7 +1075,7 @@
                 "issues": "https://github.com/bottledcode/durable-php/issues",
                 "source": "https://github.com/bottledcode/durable-php/tree/main"
             },
-            "time": "2023-06-21T20:32:30+00:00"
+            "time": "2023-06-21T20:40:38+00:00"
         },
         {
             "name": "bottledcode/php-rql",
