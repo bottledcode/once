@@ -110,8 +110,8 @@ jobs:
 
       - name: Configure hosts
         run: |
-          echo "167.235.212.77 preview${{ github.event.pull_request.number }}.once.getswytch.com" | sudo tee -a /etc/hosts
-          echo "167.235.212.77 fake-auth.preview${{ github.event.pull_request.number }}.once.getswytch.com" | sudo tee -a /etc/hosts
+          # echo "167.235.212.77 preview${{ github.event.pull_request.number }}.once.getswytch.com" | sudo tee -a /etc/hosts
+          # echo "167.235.212.77 fake-auth.preview${{ github.event.pull_request.number }}.once.getswytch.com" | sudo tee -a /etc/hosts
 
       - uses: actions/setup-node@v3
         with:
