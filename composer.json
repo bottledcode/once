@@ -24,9 +24,12 @@
 		"symfony/polyfill-intl-grapheme": "*",
 		"symfony/polyfill-intl-normalizer": "*",
 		"symfony/polyfill-mbstring": "*",
-		"symfony/polyfill-uuid": "*"
+		"symfony/polyfill-uuid": "*",
+		"symfony/polyfill-php80": "*"
 	},
 	"require": {
+		"amphp/log": "v2.0.0-beta.2",
+		"bottledcode/durable-php": "dev-main",
 		"bottledcode/swytch-framework": "^0.3",
 		"ext-mbstring": "*",
 		"ext-sodium": "*",
