@@ -29,7 +29,7 @@
 	},
 	"require": {
 		"bottledcode/durable-php": "dev-main",
-		"bottledcode/swytch-framework": "^0.3",
+		"bottledcode/swytch-framework": "^0.4",
 		"ext-mbstring": "*",
 		"ext-sodium": "*",
 		"bottledcode/php-rql": "dev-master",
