@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03b6e91829dc7a0bb5c1d2b528546f02",
+    "content-hash": "41d6f196f6b5b741a49dc326de81135e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -1154,16 +1154,16 @@
         },
         {
             "name": "bottledcode/swytch-framework",
-            "version": "v0.3.3",
+            "version": "v0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bottledcode/swytch-framework.git",
-                "reference": "2b841232c2c5b578a207e453beb7a247d26adb2d"
+                "reference": "b9c545156702ab5ba5fde8679c5fcac3decbc749"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/2b841232c2c5b578a207e453beb7a247d26adb2d",
-                "reference": "2b841232c2c5b578a207e453beb7a247d26adb2d",
+                "url": "https://api.github.com/repos/bottledcode/swytch-framework/zipball/b9c545156702ab5ba5fde8679c5fcac3decbc749",
+                "reference": "b9c545156702ab5ba5fde8679c5fcac3decbc749",
                 "shasum": ""
             },
             "require": {
@@ -1182,13 +1182,13 @@
                 "php": ">=8.2",
                 "php-di/php-di": "^7.0",
                 "psr/container": "2.0.2",
-                "psr/http-message": "1.1",
+                "psr/http-message": "^1.1",
                 "symfony/property-access": "^6.2",
                 "symfony/serializer": "^6.2",
                 "withinboredom/response-code": "^1.0"
             },
             "require-dev": {
-                "infection/infection": "^0.26",
+                "infection/infection": "^0.27",
                 "monolog/monolog": "^3.3",
                 "pestphp/pest": "^2.5",
                 "phpstan/phpstan": "^1.10",
@@ -1219,9 +1219,9 @@
             "description": "A PHP framework for building web applications",
             "support": {
                 "issues": "https://github.com/bottledcode/swytch-framework/issues",
-                "source": "https://github.com/bottledcode/swytch-framework/tree/v0.3.3"
+                "source": "https://github.com/bottledcode/swytch-framework/tree/v0.4.0"
             },
-            "time": "2023-04-15T14:21:43+00:00"
+            "time": "2023-08-16T20:15:41+00:00"
         },
         {
             "name": "brick/math",
