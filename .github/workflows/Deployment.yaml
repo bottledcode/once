@@ -33,7 +33,7 @@ jobs:
           echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
 
       - name: Switch to namespace
-        run: loft use cluster && devspace use namespace once
+        run: devsapce use context default && devspace use namespace once
 
       - name: Execute
         run: |
