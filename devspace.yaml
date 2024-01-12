@@ -39,8 +39,6 @@ pipelines:
   # You can run this pipeline via `devspace deploy` (or `devspace run-pipeline deploy`)
   deploy:
     run: |-
-      loft wakeup space image-builder
-      kubectl create namespace auth || true
       run_dependencies --all --pipeline deploy
       ensure_pull_secrets --all
       build_images --all
@@ -125,7 +123,7 @@ dev:
       - command: composer
       - command: git
 
-# Use the `commands` section to define repeatable dev workflows for this project 
+# Use the `commands` section to define repeatable dev workflows for this project
 commands:
   clean:
     command: |-

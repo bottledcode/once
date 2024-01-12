@@ -13,15 +13,10 @@ jobs:
     environment: Production
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          lfs: true
+        uses: actions/checkout@v4
 
-      - uses: azure/docker-login@v1
-        with:
-          login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+      - name: Docker Login
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
 
       - name: Set up Docker Buildx
         id: buildx
@@ -32,19 +27,17 @@ jobs:
       - name: Install DevSpace
         uses: loft-sh/setup-devspace@main
 
-      - name: Install Loft
-        uses: loft-sh/setup-loft@v2
-        with:
-          # version: v1.15.0
-          url: https://kube.bottled.codes
-          access-key: ${{ secrets.LOFT_ACCESS_KEY }}
+      - name: configure context
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG }}" > ~/.kube/config
 
       - name: Switch to namespace
         run: loft use cluster && devspace use namespace once
 
       - name: Execute
         run: |
-          devspace build -t ${{ github.sha }} -t test --no-warn
+          devspace build -t ${{ github.sha }} --no-warn
 
       - name: Deploy
         run: |
