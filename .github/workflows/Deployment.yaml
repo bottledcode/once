@@ -35,10 +35,6 @@ jobs:
       - name: Switch to namespace
         run: devspace use context default && devspace use namespace once
 
-      - name: Execute
-        run: |
-          devspace build -t ${{ github.sha }} --no-warn
-
       - name: Deploy
         run: |
           devspace deploy --no-warn -t ${{ github.sha }} --skip-dependency auth \
