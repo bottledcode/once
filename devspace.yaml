@@ -39,7 +39,6 @@ pipelines:
   # You can run this pipeline via `devspace deploy` (or `devspace run-pipeline deploy`)
   deploy:
     run: |-
-      run_dependencies --all --pipeline deploy
       ensure_pull_secrets --all
       build_images --all
       devspace reset pods
