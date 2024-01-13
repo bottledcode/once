@@ -4,7 +4,7 @@
 
 replicaCount: 2
 pullPolicy: Always
-image: registry.bottled.codes/swytch/once
+image: ghcr.io/bottledcode/swytch/once
 host: once.getswytch.com
 
 auth:

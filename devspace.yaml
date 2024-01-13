@@ -52,16 +52,16 @@ pipelines:
   db-migrate:
     run: |-
       echo "Migrating database: waiting for pod to be ready..."
-      wait_pod --image-selector=registry.bottled.codes/swytch/once
+      wait_pod --image-selector=ghcr.io/bottledcode/swytch/once
       echo "Migrating database: running migrations..."
       run_dependencies --all --pipeline db-migrate
-      exec_container --image-selector=registry.bottled.codes/swytch/once php src/scripts/db.php $RETHINKDB_ADMIN_PASSWORD
+      exec_container --image-selector=ghcr.io/bottledcode/swytch/once php src/scripts/db.php $RETHINKDB_ADMIN_PASSWORD
 
 # This is a list of `images` that DevSpace can build for this project
 # We recommend to skip image building during development (devspace dev) as much as possible
 images:
   once:
-    image: registry.bottled.codes/swytch/once
+    image: ghcr.io/bottledcode/swytch/once
     dockerfile: ./Dockerfile
     target: prod
     buildKit:
@@ -102,9 +102,9 @@ deployments:
 dev:
   once:
     # Search for the container that runs this image
-    imageSelector: registry.bottled.codes/swytch/once
+    imageSelector: ghcr.io/bottledcode/swytch/once
     # Replace the container image with this dev-optimized image (allows to skip image building during development)
-    devImage: registry.bottled.codes/swytch/once
+    devImage: ghcr.io/bottledcode/swytch/once
     # Sync files between the local filesystem and the development container
     sync:
       - path: ./
