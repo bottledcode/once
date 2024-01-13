@@ -81,6 +81,8 @@ spec:
                 secretKeyRef:
                   key: rdb-password
                   name: swytch-once
+            - name: SERVER_NAME
+              value: ":80"
           resources:
             requests:
               cpu: 100m
