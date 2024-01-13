@@ -3,7 +3,7 @@ name: once
 
 vars:
   STATE_SECRET: not-a-secret
-  IMAGE: 'registry.bottled.codes/swytch/once'
+  IMAGE: 'ghcr.io/bottledcode/swytch/once'
   RETHINKDB_HOST: rethinkdb-main-rethinkdb-proxy.main.svc.cluster.local
   RETHINKDB_USER: swytch-once
   RETHINKDB_PASSWORD: not-a-secret

@@ -11,7 +11,7 @@ Add a `deployment.values.yaml` file to the root of the project with the followin
 ```yaml
 secrets:
   stateSecret: a secret string
-image: registry.bottled.codes/swytch/once
+image: ghcr.io/bottledcode/swytch/once
 
 rethinkdb:
   host: rethinkdb.host
